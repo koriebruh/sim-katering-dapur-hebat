@@ -1,0 +1,89 @@
+# CI: lint, unit test, build, dan uji alur di browser untuk aplikasi di web/.
+# CD ditangani integrasi Git Vercel (Root Directory: web): push ke main = deploy produksi,
+# pull request = deploy preview.
+name: CI
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true
+
+permissions:
+  contents: read
+
+jobs:
+  web:
+    name: Lint, test, build, uji alur
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    defaults:
+      run:
+        working-directory: web
+
+    services:
+      postgres:
+        image: postgres:17-alpine
+        env:
+          POSTGRES_USER: katering
+          POSTGRES_PASSWORD: katering
+          POSTGRES_DB: katering
+        ports:
+          - 5432:5432
+        options: >-
+          --health-cmd "pg_isready -U katering"
+          --health-interval 5s
+          --health-timeout 5s
+          --health-retries 10
+
+    env:
+      # database sementara milik runner, hilang setelah job selesai
+      DATABASE_URL: postgres://katering:katering@127.0.0.1:5432/katering
+      NEXT_PUBLIC_SITE_URL: http://localhost:3220
+      NEXT_TELEMETRY_DISABLED: "1"
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+          cache-dependency-path: web/package-lock.json
+
+      - name: Pasang dependensi
+        run: npm ci
+
+      - name: Rahasia sementara untuk job ini
+        run: |
+          echo "SESSION_SECRET=$(openssl rand -base64 36)" >> "$GITHUB_ENV"
+          echo "SEED_PASSWORD=Ci-$(openssl rand -hex 8)" >> "$GITHUB_ENV"
+
+      - name: Lint
+        run: npm run lint
+
+      - name: Unit test
+        run: npm test
+
+      - name: Migrasi dan data contoh
+        run: |
+          npx drizzle-kit migrate
+          npx tsx src/db/seed.ts
+
+      - name: Build
+        run: npm run build
+
+      - name: Uji alur di browser
+        run: npx playwright test
+
+      - name: Simpan hasil uji bila gagal
+        if: failure()
+        uses: actions/upload-artifact@v4
+        with:
+          name: hasil-uji-alur
+          path: web/test-results
+          retention-days: 7
+          if-no-files-found: ignore

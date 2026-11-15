@@ -4,6 +4,7 @@
 ![PostgreSQL](https://img.shields.io/badge/PostgreSQL-Neon-4169E1?logo=postgresql&logoColor=white)
 ![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-4-06B6D4?logo=tailwindcss&logoColor=white)
 ![Vercel](https://img.shields.io/badge/Deploy-Vercel-000000?logo=vercel&logoColor=white)
+[![CI](https://github.com/koriebruh/sim-katering-dapur-hebat/actions/workflows/ci.yml/badge.svg)](https://github.com/koriebruh/sim-katering-dapur-hebat/actions/workflows/ci.yml)
 ![Unit test](https://img.shields.io/badge/unit_test-23_lulus-2F7D5B)
 ![Uji alur](https://img.shields.io/badge/uji_alur-12_lulus-2F7D5B)
 
@@ -117,9 +118,17 @@ Di lokal, kata sandi akun mengikuti `SEED_PASSWORD` di `web/.env.local` saat `np
 | `npm test` | 23 unit test aturan bisnis |
 | `npm run test:e2e` | 12 uji alur di browser; butuh database lokal yang sudah di-seed dan Chrome terpasang |
 | `npm run lint`, `npm run build` | Harus lulus sebelum deploy |
-| `vercel deploy --prod` | Deploy dari folder `web/`; migrasi database berjalan otomatis saat build |
 
 Uji alur menulis data contoh ke database lokal, jadi jangan diarahkan ke database produksi.
+
+### 🔁 CI/CD
+
+| Kejadian | Yang berjalan |
+|---|---|
+| Pull request | GitHub Actions ([`ci.yml`](.github/workflows/ci.yml)): lint, unit test, migrasi dan seed ke Postgres sementara, build, 12 uji alur di browser. Vercel membuat deploy preview |
+| Push ke `main` | GitHub Actions yang sama, dan Vercel men-deploy ke produksi; migrasi database berjalan otomatis saat build |
+
+Vercel membaca aplikasi dari folder `web/` (Root Directory proyek). Deploy tidak perlu dijalankan manual; cukup merge ke `main`.
 
 ### 🔒 Keamanan
 
