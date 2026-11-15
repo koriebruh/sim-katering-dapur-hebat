@@ -9,6 +9,11 @@
   --color-accent-500: #e98a2b;
   --color-accent-100: #fde8cf;
   --color-cream: #f4f1ec;
+  --color-rice: #fbfaf6;
+  --color-kraft-700: #7d5f36;
+  --color-kraft-500: #b8935f;
+  --color-kraft-400: #c9a878;
+  --color-kraft-100: #f0e6d3;
   --color-line: #e2dcd2;
   --color-ink: #1f2933;
   --color-muted: #52606d;
@@ -17,3 +22,6 @@
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; }
 }
+
+:focus-visible { outline: 3px solid var(--color-accent-500); outline-offset: 2px; }
+html { scroll-behavior: smooth; }
