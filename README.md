@@ -3,7 +3,9 @@
 Proyek mata kuliah Sistem Informasi Manajemen (Teknik Informatika, Universitas Pamulang, 2026): laporan perancangan SIM dengan metode SDLC, ditambah purwarupa aplikasi web yang dibangun mengikuti rancangan itu.
 
 - Aplikasi: https://sim-katering-dapur-hebat.vercel.app
-- Laporan: `Laporan-SIM-Katering-Dapur-Hebat.docx` (33 halaman; tidak ikut di repo karena memuat nama dan NIM)
+- Laporan: [`Laporan-SIM-Katering-Dapur-Hebat.pdf`](Laporan-SIM-Katering-Dapur-Hebat.pdf) (33 halaman)
+- Presentasi: [`Presentasi-SIM-Katering-Dapur-Hebat.pptx`](Presentasi-SIM-Katering-Dapur-Hebat.pptx) (14 slide)
+- Penulis: Syahwa Rahma Andini, NIM 241011402529
 
 ## Status
 
@@ -15,20 +17,63 @@ Proyek mata kuliah Sistem Informasi Manajemen (Teknik Informatika, Universitas P
 | Aplikasi F-01 sampai F-11 | Selesai dan online |
 | Mockup di Canva (diminta template) | **Belum**: unggah `mockup/papan-mockup.png` atau ketujuh PNG ke Canva, isi link di Lampiran |
 | Papan mockup di FigCraft | Selesai: `mockup/mockup-sim-katering.figcraft` dan `mockup/papan-mockup.png` (7 layar aplikasi disusun berjudul) |
-| Bahan presentasi | Draf 12 slide: `Presentasi-SIM-Katering-Dapur-Hebat.pptx` dan `.pdf` (tidak ikut di repo) |
+| Bahan presentasi | 14 slide, `.pptx` dan `.pdf` |
 | Presentasi (P13) dan revisi (P14) | Belum |
+
+## Dokumen
+
+| File | Isi |
+|---|---|
+| [`Laporan-SIM-Katering-Dapur-Hebat.pdf`](Laporan-SIM-Katering-Dapur-Hebat.pdf) | Laporan proyek, 33 halaman: 6 bab, daftar pustaka (19 sumber), lampiran |
+| [`Presentasi-SIM-Katering-Dapur-Hebat.pptx`](Presentasi-SIM-Katering-Dapur-Hebat.pptx) | Bahan presentasi, 14 slide, dapat diedit di PowerPoint |
+| [`Presentasi-SIM-Katering-Dapur-Hebat.pdf`](Presentasi-SIM-Katering-Dapur-Hebat.pdf) | Bahan presentasi versi PDF |
+| [`mockup/papan-mockup.png`](mockup/papan-mockup.png) | Papan mockup tujuh layar (sumber: `mockup/mockup-sim-katering.figcraft`) |
+| `diagram/` | Flowchart sistem berjalan, DFD konteks, DFD level 1, ERD (`.drawio` + `.png`) |
+
+Versi Word laporan (`.docx`), template dosen, logo, dan skrip pembuat laporan tidak ikut di repo.
 
 ## Aplikasi
 
-| Peran | Akun demo | Yang bisa dilakukan |
-|---|---|---|
-| Admin Pemesanan | `admin.rina` | Kelola menu dan pelanggan, catat pesanan, catat uang muka/pelunasan, ubah status, cari pesanan |
-| Kepala Dapur | `dapur.sari` | Lihat jadwal produksi dan rekap komponen menu, tandai dikirim/selesai |
-| Manajer Operasional | `manajer.budi` | Lihat pesanan (nomor HP tersamar), laporan penjualan dan piutang, ekspor CSV, cetak |
-| Pemilik | `pemilik.nur` | Dashboard omzet, tren 6 bulan, menu terlaris, piutang |
-| Pengunjung | tanpa login | Halaman publik: profil, katalog menu, pesan lewat WhatsApp |
+Alamat: https://sim-katering-dapur-hebat.vercel.app
 
-Kata sandi akun demo disimpan di Vercel (variabel `SEED_PASSWORD`) dan di `web/.env.local` untuk lokal; tidak ditulis di repo.
+Halaman login: https://sim-katering-dapur-hebat.vercel.app/login
+
+### Akun demo
+
+Kata sandi keempat akun sama: **`Dapur-59f00acd63`**
+
+| Peran | Nama pengguna | Nama di aplikasi | Halaman yang bisa dibuka | Yang bisa dilakukan |
+|---|---|---|---|---|
+| Admin Pemesanan | `admin.rina` | Rina Oktaviani | Dashboard, Pesanan, Jadwal Produksi, Menu & Paket, Pelanggan | Kelola menu dan pelanggan, catat pesanan, catat uang muka/pelunasan, ubah status, batalkan pesanan, cari pesanan |
+| Kepala Dapur | `dapur.sari` | Ibu Sari | Dashboard, Jadwal Produksi | Lihat jadwal produksi dan rekap komponen menu, tandai dikirim/selesai |
+| Manajer Operasional | `manajer.budi` | Budi Santoso | Dashboard, Pesanan, Laporan | Lihat pesanan (nomor HP tersamar), laporan penjualan dan piutang, ekspor CSV, cetak |
+| Pemilik | `pemilik.nur` | Hj. Nurhayati | Dashboard, Laporan | Dashboard omzet, tren 6 bulan, menu terlaris, piutang |
+| Pengunjung | tanpa login | — | Halaman publik | Lihat profil dan katalog menu, pesan lewat WhatsApp |
+
+Login memakai nama pengguna, bukan email. Akun ini hanya untuk demo dan seluruh datanya contoh. Karena kata sandinya tertulis di repo publik, siapa pun bisa masuk dan mengubah data demo; jangan pakai akun atau kata sandi ini untuk data sungguhan. Setelah 5 kali salah sandi, login akun itu ditahan 15 menit.
+
+Untuk lokal, kata sandi akun mengikuti `SEED_PASSWORD` di `web/.env.local` saat `npm run db:seed` dijalankan.
+
+### Alur yang bisa dicoba
+
+1. Masuk sebagai `admin.rina`, buka **Pesanan → Pesanan baru**, pilih pelanggan dan menu, klik **50%** untuk uang muka, simpan.
+2. Masuk sebagai `dapur.sari`, buka **Jadwal Produksi** pada tanggal kirim pesanan tadi, klik **Kirim** lalu **Selesai**.
+3. Masuk sebagai `admin.rina` lagi, buka pesanan itu, catat pelunasan.
+4. Masuk sebagai `manajer.budi`, buka **Laporan**, coba **Ekspor CSV**.
+5. Masuk sebagai `pemilik.nur` untuk melihat dashboard ringkasan usaha.
+
+### Halaman
+
+| Alamat | Isi | Peran |
+|---|---|---|
+| `/` | Halaman publik: profil, katalog menu, cara pesan, kontak | Semua orang |
+| `/login` | Masuk | Karyawan |
+| `/dashboard` | Ringkasan sesuai peran | Semua peran |
+| `/pesanan`, `/pesanan/baru`, `/pesanan/[kode]` | Daftar dan pencarian, pesanan baru, detail dan pembayaran | Admin; manajer hanya melihat |
+| `/jadwal` | Jadwal produksi per tanggal dan rekap komponen | Kepala dapur, admin |
+| `/menu-paket` | Kelola menu dan harga | Admin |
+| `/pelanggan` | Kelola pelanggan | Admin |
+| `/laporan`, `/laporan/ekspor` | Laporan penjualan dan piutang, ekspor CSV | Manajer, pemilik |
 
 Teknologi: Next.js 16 (App Router), PostgreSQL (Neon lewat Vercel) + Drizzle, Tailwind CSS v4, Motion, Lucide. Rencana dan keputusan ada di [`docs/PROJECT.md`](docs/PROJECT.md) dan [`docs/features/M0-kerangka.md`](docs/features/M0-kerangka.md).
 
@@ -106,6 +151,7 @@ Catatan menu, `info.txt` dibanding foto: ayam serundeng dan Paket Hebat 2 ada sa
 | `mockup/` | 7 tangkapan layar aplikasi yang dipakai laporan, papan mockup FigCraft (file `.html` adalah mockup awal) |
 | `asset/` | Foto menu dan `info.txt` |
 | `build_gambar.py` | Membuat ulang diagram |
-| `build_laporan.py` | Membuat ulang laporan dari template (tidak ikut di repo) |
+| `build_laporan.py` | Membuat ulang laporan `.docx` dari template (tidak ikut di repo) |
+| `Laporan-*.pdf`, `Presentasi-*` | Laporan dan bahan presentasi |
 
 Mengedit laporan langsung di Word boleh, tetapi jangan jalankan `build_laporan.py` setelahnya karena skrip itu menimpa file laporan.

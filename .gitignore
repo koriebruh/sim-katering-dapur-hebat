@@ -11,7 +11,4 @@ Laporan-*.docx
 Template-*.docx
 build_laporan.py
 .playwright-mcp/
-Presentasi-*.pptx
-Presentasi-*.pdf
 UNPAM_logo*.png
-Laporan-*.pdf
