@@ -10,6 +10,8 @@ const HEADER_KEAMANAN = [
 
 const nextConfig: NextConfig = {
   poweredByHeader: false,
+  // foto menu dikirim lewat server action; batas bawaan 1 MB terlalu kecil
+  experimental: { serverActions: { bodySizeLimit: "3mb" } },
   async headers() {
     return [{ source: "/:path*", headers: HEADER_KEAMANAN }];
   },

@@ -1,5 +1,5 @@
 import { asc, sql } from "drizzle-orm";
-import { Pencil, Plus, Save } from "lucide-react";
+import { Pencil, Plus, Save, Trash2 } from "lucide-react";
 import type { Metadata } from "next";
 import Link from "next/link";
 import { Judul, kelas, Kosong, Pesan, Tabel } from "@/components/ui";
@@ -8,7 +8,7 @@ import { pelanggan, pesanan } from "@/db/schema";
 import { wajibLogin } from "@/lib/dal";
 import { hpUntuk } from "@/lib/format";
 import { aksesHalaman } from "@/lib/roles";
-import { simpanPelanggan } from "./actions";
+import { hapusPelanggan, simpanPelanggan } from "./actions";
 
 export const metadata: Metadata = { title: "Pelanggan" };
 
@@ -63,6 +63,11 @@ export default async function HalamanPelanggan({ searchParams }: { searchParams:
             <button className={kelas.tombol}>{dipilih ? <Save size={16} aria-hidden /> : <Plus size={16} aria-hidden />} {dipilih ? "Simpan perubahan" : "Tambah pelanggan"}</button>
             {dipilih && <Link href="/pelanggan" scroll={false} className={kelas.tombolGaris}>Batal</Link>}
           </div>
+          {dipilih && (
+            <button formAction={hapusPelanggan} formNoValidate className={`${kelas.tombolGaris} mt-3 w-full hover:!border-red-300 hover:!text-red-700`}>
+              <Trash2 size={16} aria-hidden /> Hapus pelanggan ini
+            </button>
+          )}
         </form>
       </div>
     </>

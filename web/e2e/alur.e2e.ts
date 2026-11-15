@@ -249,3 +249,47 @@ test("tampilan ponsel 390 px tanpa gulir mendatar", async ({ page }) => {
     expect(await luber(), p).toBe(0);
   }
 });
+
+test("foto menu: unggah, ganti lewat file bukan gambar ditolak, hapus foto, hapus menu", async ({ page }) => {
+  await masuk(page, "wawa");
+  await expect(page).toHaveURL(/\/dashboard$/);
+  const nama = `Menu Foto ${unik}`;
+  await page.goto("/menu-paket");
+  await page.locator("#nama").fill(nama);
+  await page.locator("#komposisi").fill("Nasi putih, lauk uji");
+  await page.locator("#harga").fill("20000");
+  await page.locator("#foto").setInputFiles("public/menu/paket-hebat-1.jpg");
+  await page.locator("main form button").first().click();
+  await expect(pesan(page)).toContainText("Data tersimpan.");
+  const kartu = page.locator("main li", { hasText: nama });
+  const src = await kartu.locator("img").getAttribute("src");
+  expect(src).toMatch(/^\/foto-menu\/\d+\?v=\d+$/);
+  const foto = await page.request.get(src!);
+  expect(foto.status()).toBe(200);
+  expect(foto.headers()["content-type"]).toBe("image/jpeg");
+
+  // file teks yang menyamar sebagai gambar ditolak server
+  await kartu.getByRole("link", { name: "Ubah" }).click();
+  await expect(page.getByRole("button", { name: "Simpan perubahan" })).toBeVisible();
+  await page.locator("#foto").setInputFiles({ name: "palsu.jpg", mimeType: "image/jpeg", buffer: Buffer.from("<script>alert(1)</script>".repeat(4)) });
+  await page.getByRole("button", { name: "Simpan perubahan" }).click();
+  await expect(pesan(page)).toContainText("Foto harus berupa JPG, PNG, atau WebP");
+  await expect(page.getByRole("button", { name: "Simpan perubahan" })).toBeVisible();
+
+  await page.locator("input[name=hapusFoto]").check();
+  await page.getByRole("button", { name: "Simpan perubahan" }).click();
+  await expect(pesan(page)).toContainText("Data tersimpan.");
+  await expect(page.locator("main li", { hasText: nama }).locator("img")).toHaveCount(0);
+  expect((await page.request.get(src!.split("?")[0])).status()).toBe(404);
+
+  await page.locator("main li", { hasText: nama }).getByRole("link", { name: "Ubah" }).click();
+  await expect(page.getByRole("button", { name: "Hapus menu ini" })).toBeVisible();
+  await page.getByRole("button", { name: "Hapus menu ini" }).click();
+  await expect(pesan(page)).toContainText("Data dihapus.");
+  await expect(page.locator("main li", { hasText: nama })).toHaveCount(0);
+
+  // menu yang sudah dipesan tidak bisa dihapus
+  await page.locator("main li", { hasText: "Paket Hebat 1" }).getByRole("link", { name: "Ubah" }).click();
+  await page.getByRole("button", { name: "Hapus menu ini" }).click();
+  await expect(pesan(page)).toContainText("sudah pernah dipesan");
+});

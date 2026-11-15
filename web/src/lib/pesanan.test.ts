@@ -1,6 +1,6 @@
 import { describe, expect, test } from "vitest";
 import {
-  awalanKode, bolehTransisi, cekPembayaran, geserHari, hitungTotal, minimalDp, pathAman, rekapKomponen,
+  awalanKode, bolehTransisi, jenisGambar, cekPembayaran, geserHari, hitungTotal, minimalDp, pathAman, rekapKomponen,
   rentangHari, selCsv, tanggalSah, tanggalWib, transisiUntuk,
 } from "./pesanan";
 
@@ -94,4 +94,15 @@ test("redirect hanya ke path internal", () => {
   for (const p of ["//evil.example", "/\\evil.example", "https://evil.example", "javascript:alert(1)", undefined, 5]) {
     expect(pathAman(p, "/pesanan")).toBe("/pesanan");
   }
+});
+
+test("jenis gambar dikenali dari isi file", () => {
+  const isi = (awal: number[]) => Uint8Array.from([...awal, ...Array(16).fill(0)]);
+  expect(jenisGambar(isi([0xff, 0xd8, 0xff, 0xe0]))).toBe("image/jpeg");
+  expect(jenisGambar(isi([0x89, 0x50, 0x4e, 0x47]))).toBe("image/png");
+  expect(jenisGambar(Uint8Array.from([..."RIFF"].map((c) => c.charCodeAt(0)).concat([0, 0, 0, 0], [..."WEBP"].map((c) => c.charCodeAt(0)), [0, 0])))).toBe("image/webp");
+  expect(jenisGambar(isi([0x3c, 0x73, 0x76, 0x67]))).toBeNull(); // <svg
+  expect(jenisGambar(isi([0x4d, 0x5a]))).toBeNull(); // berkas program
+  expect(jenisGambar(new Uint8Array(3))).toBeNull();
+  expect(jenisGambar(new Uint8Array(2 * 1024 * 1024 + 1).fill(0xff))).toBeNull();
 });

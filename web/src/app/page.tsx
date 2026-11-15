@@ -109,7 +109,7 @@ export default async function Beranda() {
                 <Muncul urut={i % 4} className="group flex h-full flex-col overflow-hidden rounded-2xl bg-white shadow-[0_1px_3px_rgb(28_25_23/0.06)] ring-1 ring-line transition duration-300 hover:-translate-y-1 hover:shadow-xl hover:shadow-accent-500/10">
                   <div className="relative aspect-[4/3] overflow-hidden bg-accent-100">
                     {m.foto && (
-                      <Image src={m.foto} alt={`${m.nama}: ${m.komposisi.toLowerCase()}`} fill className="object-cover transition duration-500 group-hover:scale-105"
+                      <Image src={m.foto} alt={`${m.nama}: ${m.komposisi.toLowerCase()}`} fill unoptimized={m.foto.startsWith("/foto-menu/")} className="object-cover transition duration-500 group-hover:scale-105"
                         sizes="(min-width: 1024px) 270px, (min-width: 640px) 46vw, 92vw" />
                     )}
                   </div>

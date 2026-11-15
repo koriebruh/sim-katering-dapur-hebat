@@ -16,13 +16,28 @@ export const GALAT = {
   pelanggan: "Isian pelanggan belum benar: nama minimal 2 karakter dan nomor HP wajib diisi (diawali 0, 9–14 digit).",
   status: "Perubahan status tidak diizinkan.",
   tidakAda: "Data tidak ditemukan.",
+  foto: "Foto harus berupa JPG, PNG, atau WebP dan paling besar 2 MB.",
+  menuDipakai: "Menu sudah pernah dipesan sehingga tidak bisa dihapus. Hilangkan centang Dijual agar tidak tampil lagi.",
+  pelangganDipakai: "Pelanggan sudah memiliki pesanan sehingga tidak bisa dihapus.",
 } as const;
 export const BERHASIL = {
   disimpan: "Data tersimpan.",
   dibuat: "Pesanan tersimpan.",
   dibayar: "Pembayaran tercatat.",
   status: "Status pesanan diperbarui.",
+  dihapus: "Data dihapus.",
 } as const;
+
+export const MAKS_FOTO = 2 * 1024 * 1024;
+/** Jenis gambar dikenali dari byte awal file, bukan dari nama atau tipe yang dikirim peramban. */
+export function jenisGambar(b: Uint8Array): "image/jpeg" | "image/png" | "image/webp" | null {
+  if (b.length < 12 || b.length > MAKS_FOTO) return null;
+  if (b[0] === 0xff && b[1] === 0xd8 && b[2] === 0xff) return "image/jpeg";
+  if (b[0] === 0x89 && b[1] === 0x50 && b[2] === 0x4e && b[3] === 0x47) return "image/png";
+  const teks = (i: number, n: number) => String.fromCharCode(...b.slice(i, i + n));
+  if (teks(0, 4) === "RIFF" && teks(8, 4) === "WEBP") return "image/webp";
+  return null;
+}
 
 export const LABEL_STATUS: Record<StatusPesanan, string> = {
   menunggu_dp: "Menunggu DP", diproses: "Diproses", dikirim: "Dikirim", selesai: "Selesai", batal: "Batal",
