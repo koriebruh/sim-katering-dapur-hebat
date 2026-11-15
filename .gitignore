@@ -1,0 +1,12 @@
+node_modules/
+.next/
+.env*
+!.env.example
+.vercel/
+coverage/
+test-results/
+playwright-report/
+# berkas laporan memuat data pribadi (nama, NIM); tidak dipublikasikan
+Laporan-*.docx
+Template-*.docx
+build_laporan.py
