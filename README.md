@@ -25,7 +25,7 @@ Proyek mata kuliah Sistem Informasi Manajemen (Teknik Informatika, Universitas P
 | File | Isi |
 |---|---|
 | [`Laporan-SIM-Katering-Dapur-Hebat.pdf`](Laporan-SIM-Katering-Dapur-Hebat.pdf) | Laporan proyek, 33 halaman: 6 bab, daftar pustaka (19 sumber), lampiran |
-| [`Presentasi-SIM-Katering-Dapur-Hebat.pptx`](Presentasi-SIM-Katering-Dapur-Hebat.pptx) | Bahan presentasi, 14 slide, dapat diedit di PowerPoint |
+| [`Presentasi-SIM-Katering-Dapur-Hebat.pptx`](Presentasi-SIM-Katering-Dapur-Hebat.pptx) | Bahan presentasi, 14 slide dengan catatan pembicara, dapat diedit di PowerPoint |
 | [`Presentasi-SIM-Katering-Dapur-Hebat.pdf`](Presentasi-SIM-Katering-Dapur-Hebat.pdf) | Bahan presentasi versi PDF |
 | [`mockup/papan-mockup.png`](mockup/papan-mockup.png) | Papan mockup tujuh layar (sumber: `mockup/mockup-sim-katering.figcraft`) |
 | `diagram/` | Flowchart sistem berjalan, DFD konteks, DFD level 1, ERD (`.drawio` + `.png`) |
@@ -42,13 +42,13 @@ Halaman login: https://sim-katering-dapur-hebat.vercel.app/login
 
 Kata sandi keempat akun sama: **`Dapur-59f00acd63`**
 
-| Peran | Nama pengguna | Nama di aplikasi | Halaman yang bisa dibuka | Yang bisa dilakukan |
-|---|---|---|---|---|
-| Admin Pemesanan | `admin.rina` | Rina Oktaviani | Dashboard, Pesanan, Jadwal Produksi, Menu & Paket, Pelanggan | Kelola menu dan pelanggan, catat pesanan, catat uang muka/pelunasan, ubah status, batalkan pesanan, cari pesanan |
-| Kepala Dapur | `dapur.sari` | Ibu Sari | Dashboard, Jadwal Produksi | Lihat jadwal produksi dan rekap komponen menu, tandai dikirim/selesai |
-| Manajer Operasional | `manajer.budi` | Budi Santoso | Dashboard, Pesanan, Laporan | Lihat pesanan (nomor HP tersamar), laporan penjualan dan piutang, ekspor CSV, cetak |
-| Pemilik | `pemilik.nur` | Hj. Nurhayati | Dashboard, Laporan | Dashboard omzet, tren 6 bulan, menu terlaris, piutang |
-| Pengunjung | tanpa login | — | Halaman publik | Lihat profil dan katalog menu, pesan lewat WhatsApp |
+| Peran | Nama pengguna | Kata sandi | Nama di aplikasi | Halaman yang bisa dibuka | Yang bisa dilakukan |
+|---|---|---|---|---|---|
+| Admin Pemesanan | `admin.rina` | `Dapur-59f00acd63` | Rina Oktaviani | Dashboard, Pesanan, Jadwal Produksi, Menu & Paket, Pelanggan | Kelola menu dan pelanggan, catat pesanan, catat uang muka/pelunasan, ubah status, batalkan pesanan, cari pesanan |
+| Kepala Dapur | `dapur.sari` | `Dapur-59f00acd63` | Ibu Sari | Dashboard, Jadwal Produksi | Lihat jadwal produksi dan rekap komponen menu, tandai dikirim/selesai |
+| Manajer Operasional | `manajer.budi` | `Dapur-59f00acd63` | Budi Santoso | Dashboard, Pesanan, Laporan | Lihat pesanan (nomor HP tersamar), laporan penjualan dan piutang, ekspor CSV, cetak |
+| Pemilik | `pemilik.nur` | `Dapur-59f00acd63` | Hj. Nurhayati | Dashboard, Laporan | Dashboard omzet, tren 6 bulan, menu terlaris, piutang |
+| Pengunjung | tanpa login | — | — | Halaman publik | Lihat profil dan katalog menu, pesan lewat WhatsApp |
 
 Login memakai nama pengguna, bukan email. Akun ini hanya untuk demo dan seluruh datanya contoh. Karena kata sandinya tertulis di repo publik, siapa pun bisa masuk dan mengubah data demo; jangan pakai akun atau kata sandi ini untuk data sungguhan. Setelah 5 kali salah sandi, login akun itu ditahan 15 menit.
 
