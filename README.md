@@ -5,8 +5,8 @@
 ![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-4-06B6D4?logo=tailwindcss&logoColor=white)
 ![Vercel](https://img.shields.io/badge/Deploy-Vercel-000000?logo=vercel&logoColor=white)
 [![CI](https://github.com/koriebruh/sim-katering-dapur-hebat/actions/workflows/ci.yml/badge.svg)](https://github.com/koriebruh/sim-katering-dapur-hebat/actions/workflows/ci.yml)
-![Unit test](https://img.shields.io/badge/unit_test-23_lulus-2F7D5B)
-![Uji alur](https://img.shields.io/badge/uji_alur-12_lulus-2F7D5B)
+![Unit test](https://img.shields.io/badge/unit_test-24_lulus-2F7D5B)
+![Uji alur](https://img.shields.io/badge/uji_alur-13_lulus-2F7D5B)
 
 Proyek mata kuliah Sistem Informasi Manajemen, Program Studi Teknik Informatika, Universitas Pamulang, 2026: laporan perancangan SIM dengan metode SDLC, bahan presentasi, dan purwarupa aplikasi web yang dibangun mengikuti rancangan itu.
 
@@ -26,7 +26,7 @@ Proyek mata kuliah Sistem Informasi Manajemen, Program Studi Teknik Informatika,
 | Diagram: flowchart sistem berjalan, DFD konteks, DFD level 1, ERD | ✅ Selesai |
 | Mockup tujuh layar: papan FigCraft dan Canva | ✅ Selesai |
 | Aplikasi F-01 sampai F-11 | ✅ Selesai dan online |
-| Uji: 23 unit test, 12 uji alur otomatis | ✅ Lulus |
+| Uji: 24 unit test, 13 uji alur otomatis | ✅ Lulus |
 | Bahan presentasi 17 slide | ✅ Selesai |
 
 🗓️ Agenda berikutnya, bukan pekerjaan yang tertinggal: presentasi di P13, lalu revisi di P14 dan pengisian Tabel Catatan Revisi di Lampiran laporan.
@@ -71,7 +71,7 @@ Pengunjung tidak perlu login: halaman depan menampilkan profil, katalog menu, da
 
 | Peran | Kemampuan |
 |---|---|
-| 🧾 Admin Pemesanan | Kelola menu dan pelanggan, catat pesanan, catat uang muka dan pelunasan, ubah status, batalkan pesanan, cari pesanan |
+| 🧾 Admin Pemesanan | Tambah, ubah, dan hapus menu beserta fotonya; tambah, ubah, dan hapus pelanggan; catat pesanan, catat uang muka dan pelunasan, ubah status, batalkan pesanan, cari pesanan |
 | 👩‍🍳 Kepala Dapur | Lihat jadwal produksi per tanggal dan rekap komponen menu, tandai dikirim dan selesai |
 | 📈 Manajer Operasional | Lihat pesanan (nomor HP tersamar), laporan penjualan dan piutang, ekspor CSV, cetak |
 | 👑 Pemilik | Dashboard omzet, tren enam bulan, menu terlaris, tagihan yang lewat |
@@ -93,8 +93,9 @@ Pengunjung tidak perlu login: halaman depan menampilkan profil, katalog menu, da
 | `/dashboard` | Ringkasan sesuai peran | Semua peran |
 | `/pesanan`, `/pesanan/baru`, `/pesanan/[kode]` | Daftar dan pencarian, pesanan baru, detail dan pembayaran | Admin; manajer hanya melihat |
 | `/jadwal` | Jadwal produksi per tanggal dan rekap komponen | Kepala dapur, admin |
-| `/menu-paket` | Kelola menu dan harga | Admin |
-| `/pelanggan` | Kelola pelanggan | Admin |
+| `/menu-paket` | Tambah, ubah, hapus menu; unggah, ganti, hapus foto (JPG, PNG, WebP, maks. 2 MB) | Admin |
+| `/foto-menu/[id]` | Foto menu yang diunggah | Semua orang |
+| `/pelanggan` | Tambah, ubah, hapus pelanggan | Admin |
 | `/laporan`, `/laporan/ekspor` | Laporan penjualan dan piutang, ekspor CSV | Manajer, pemilik |
 
 ### 🧱 Teknologi
@@ -115,8 +116,8 @@ Di lokal, kata sandi akun mengikuti `SEED_PASSWORD` di `web/.env.local` saat `np
 
 | Perintah | Guna |
 |---|---|
-| `npm test` | 23 unit test aturan bisnis |
-| `npm run test:e2e` | 12 uji alur di browser; butuh database lokal yang sudah di-seed dan Chrome terpasang |
+| `npm test` | 24 unit test aturan bisnis |
+| `npm run test:e2e` | 13 uji alur di browser; butuh database lokal yang sudah di-seed dan Chrome terpasang |
 | `npm run lint`, `npm run build` | Harus lulus sebelum deploy |
 
 Uji alur menulis data contoh ke database lokal, jadi jangan diarahkan ke database produksi.
@@ -125,7 +126,7 @@ Uji alur menulis data contoh ke database lokal, jadi jangan diarahkan ke databas
 
 | Kejadian | Yang berjalan |
 |---|---|
-| Pull request | GitHub Actions ([`ci.yml`](.github/workflows/ci.yml)): lint, unit test, migrasi dan seed ke Postgres sementara, build, 12 uji alur di browser. Vercel membuat deploy preview |
+| Pull request | GitHub Actions ([`ci.yml`](.github/workflows/ci.yml)): lint, unit test, migrasi dan seed ke Postgres sementara, build, 13 uji alur di browser. Vercel membuat deploy preview |
 | Push ke `main` | GitHub Actions yang sama, dan Vercel men-deploy ke produksi; migrasi database berjalan otomatis saat build |
 
 Vercel membaca aplikasi dari folder `web/` (Root Directory proyek). Deploy tidak perlu dijalankan manual; cukup merge ke `main`.
@@ -139,6 +140,8 @@ Vercel membaca aplikasi dari folder `web/` (Root Directory proyek). Deploy tidak
 - Semua masukan divalidasi di server; total, uang muka, dan sisa dihitung server di dalam transaksi database.
 - Perubahan pesanan, pembayaran, menu, dan pelanggan tercatat di `audit_log`.
 - Header keamanan, halaman internal `noindex`, sel CSV dinetralkan dari rumus.
+- Foto menu diperiksa dari isi filenya (bukan nama atau tipe kiriman peramban) dan dibatasi 2 MB.
+- Menu yang sudah pernah dipesan dan pelanggan yang sudah punya pesanan tidak bisa dihapus, agar riwayat pesanan tetap utuh.
 
 Satu kompromi yang disengaja: seseorang masih bisa mengunci satu akun selama 15 menit dengan 20 kali salah login. Mencegahnya sepenuhnya butuh CAPTCHA.
 
@@ -146,8 +149,8 @@ Satu kompromi yang disengaja: seseorang masih bisa mengunci satu akun selama 15 
 
 | Uji | Hasil |
 |---|---|
-| Unit test | ✅ 23 lulus |
-| Uji alur otomatis TC-01 sampai TC-15 dan tampilan ponsel 390 px | ✅ 12 lulus, termasuk validasi server, penolakan akses per peran, dan pemalsuan status |
+| Unit test | ✅ 24 lulus |
+| Uji alur otomatis TC-01 sampai TC-15 dan tampilan ponsel 390 px | ✅ 13 lulus, termasuk validasi server, penolakan akses per peran, pemalsuan status, dan unggah foto menu |
 | Login keempat akun demo di situs online, semua menu terbuka | ✅ Lulus |
 
 ## 📝 Catatan tentang data

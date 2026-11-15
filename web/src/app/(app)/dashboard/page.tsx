@@ -84,7 +84,7 @@ async function RingkasanUsaha() {
                 <li key={t.nama}>
                   <Muncul urut={i} className="flex items-center gap-3">
                     <span className="relative size-12 shrink-0 overflow-hidden rounded-xl bg-accent-100">
-                      {t.foto && <Image src={t.foto} alt="" fill sizes="48px" className="object-cover" />}
+                      {t.foto && <Image src={t.foto} alt="" fill sizes="48px" unoptimized={t.foto.startsWith("/foto-menu/")} className="object-cover" />}
                     </span>
                     <span className="min-w-0 flex-1">
                       <span className="block truncate font-semibold text-ink">{t.nama}</span>

@@ -1,6 +1,6 @@
 import { sql } from "drizzle-orm";
 import {
-  boolean, check, date, index, integer, jsonb, pgEnum, pgTable, serial, text, timestamp, varchar,
+  boolean, check, customType, date, index, integer, jsonb, pgEnum, pgTable, serial, text, timestamp, varchar,
 } from "drizzle-orm/pg-core";
 
 export const peranEnum = pgEnum("peran", ["admin", "dapur", "manajer", "pemilik"]);
@@ -35,6 +35,16 @@ export const menu = pgTable("menu", {
   foto: varchar("foto", { length: 120 }),
   aktif: boolean("aktif").notNull().default(true),
 }, (t) => [check("menu_harga_positif", sql`${t.harga} > 0`)]);
+
+const bytea = customType<{ data: Buffer }>({ dataType: () => "bytea" });
+
+/** Foto menu yang diunggah admin, disimpan di database agar tidak perlu layanan penyimpanan terpisah. */
+export const menuFoto = pgTable("menu_foto", {
+  menuId: integer("menu_id").primaryKey().references(() => menu.id, { onDelete: "cascade" }),
+  tipe: varchar("tipe", { length: 20 }).notNull(),
+  data: bytea("data").notNull(),
+  diperbaruiPada: timestamp("diperbarui_pada", { withTimezone: true }).notNull().defaultNow(),
+});
 
 export const pesanan = pgTable("pesanan", {
   id: serial("id").primaryKey(),

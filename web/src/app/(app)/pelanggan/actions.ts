@@ -35,3 +35,20 @@ export async function simpanPelanggan(f: FormData) {
   }
   redirect(`/pelanggan?ok=${encodeURIComponent(BERHASIL.disimpan)}`);
 }
+
+/** Menghapus pelanggan. Pelanggan yang sudah punya pesanan ditolak database (kunci asing). */
+export async function hapusPelanggan(f: FormData) {
+  const u = await wajibLogin(aksesHalaman("/pelanggan"));
+  const id = Number(f.get("id"));
+  if (!Number.isInteger(id) || id <= 0) redirect(`/pelanggan?galat=${encodeURIComponent(GALAT.tidakAda)}`);
+  let galat: string | null = null;
+  try {
+    const r = await db.delete(pelanggan).where(eq(pelanggan.id, id)).returning({ nama: pelanggan.nama });
+    if (!r.length) galat = GALAT.tidakAda;
+    else await catatAudit(db, u.id, "hapus", "pelanggan", id, { nama: r[0].nama });
+  } catch (e) {
+    const kode = (e as { code?: string; cause?: { code?: string } }).cause?.code ?? (e as { code?: string }).code;
+    galat = kode === "23503" ? GALAT.pelangganDipakai : GALAT.tidakAda;
+  }
+  redirect(galat ? `/pelanggan?galat=${encodeURIComponent(galat)}&edit=${id}` : `/pelanggan?ok=${encodeURIComponent(BERHASIL.dihapus)}`);
+}
