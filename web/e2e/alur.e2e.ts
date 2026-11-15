@@ -24,23 +24,23 @@ let kodeLunas = "";
 let kodeDp = "";
 
 test("TC-01, TC-02: login benar masuk dashboard, sandi salah ditolak", async ({ page }) => {
-  await masuk(page, "admin.rina", "sandi-salah");
+  await masuk(page, "wawa", "sandi-salah");
   await expect(pesan(page)).toContainText("Nama pengguna atau kata sandi salah.");
   await expect(page).toHaveURL(/\/login$/);
-  await masuk(page, "admin.rina");
+  await masuk(page, "wawa");
   await expect(page).toHaveURL(/\/dashboard$/);
-  await expect(page.locator("h1")).toContainText("Halo, Rina");
+  await expect(page.locator("h1")).toContainText("Halo, Wawa");
 });
 
 test("TC-03: hak akses per peran ditegakkan server", async ({ page }) => {
-  await masuk(page, "dapur.sari");
+  await masuk(page, "andini");
   await expect(page).toHaveURL(/\/dashboard$/);
   for (const p of ["/laporan", "/pesanan", "/menu-paket", "/pelanggan"]) {
     await page.goto(p);
     await expect(page, `dapur ke ${p}`).toHaveURL(/\/dashboard\?akses=ditolak$/);
   }
   await expect(pesan(page)).toContainText("tidak memiliki akses");
-  await masuk(page, "manajer.budi");
+  await masuk(page, "james");
   await expect(page).toHaveURL(/\/dashboard$/);
   for (const p of ["/pesanan/baru", "/jadwal", "/menu-paket"]) {
     await page.goto(p);
@@ -49,7 +49,7 @@ test("TC-03: hak akses per peran ditegakkan server", async ({ page }) => {
 });
 
 test("TC-04: menu baru tersimpan dan muncul di form pesanan; nama ganda ditolak", async ({ page }) => {
-  await masuk(page, "admin.rina");
+  await masuk(page, "wawa");
   await expect(page).toHaveURL(/\/dashboard$/);
   const nama = `Menu Uji ${unik}`;
   const isi = async () => {
@@ -68,7 +68,7 @@ test("TC-04: menu baru tersimpan dan muncul di form pesanan; nama ganda ditolak"
 });
 
 test("TC-05: pelanggan tanpa nomor HP ditolak oleh server", async ({ page }) => {
-  await masuk(page, "admin.rina");
+  await masuk(page, "wawa");
   await expect(page).toHaveURL(/\/dashboard$/);
   await page.goto("/pelanggan");
   const sebelum = await page.locator("tbody tr").count();
@@ -81,7 +81,7 @@ test("TC-05: pelanggan tanpa nomor HP ditolak oleh server", async ({ page }) => 
 });
 
 test("TC-06, TC-07: tanggal lewat dan DP kurang ditolak; pesanan lengkap tersimpan dengan total benar", async ({ page }) => {
-  await masuk(page, "admin.rina");
+  await masuk(page, "wawa");
   await expect(page).toHaveURL(/\/dashboard$/);
 
   await page.goto("/pesanan/baru");
@@ -120,7 +120,7 @@ test("TC-06, TC-07: tanggal lewat dan DP kurang ditolak; pesanan lengkap tersimp
 });
 
 test("TC-08, TC-09: uang muka mengubah status, kelebihan bayar ditolak, pelunasan menutup tagihan", async ({ page }) => {
-  await masuk(page, "admin.rina");
+  await masuk(page, "wawa");
   await expect(page).toHaveURL(/\/dashboard$/);
   await page.goto("/pesanan/baru");
   await page.locator("#pelangganId").selectOption({ label: "Ibu Dewi" });
@@ -150,7 +150,7 @@ test("TC-08, TC-09: uang muka mengubah status, kelebihan bayar ditolak, pelunasa
 });
 
 test("TC-12: pencarian menurut status, nama, dan kode", async ({ page }) => {
-  await masuk(page, "admin.rina");
+  await masuk(page, "wawa");
   await expect(page).toHaveURL(/\/dashboard$/);
   await page.goto("/pesanan?status=diproses");
   const status = await page.locator("tbody tr td:last-child").allInnerTexts();
@@ -164,7 +164,7 @@ test("TC-12: pencarian menurut status, nama, dan kode", async ({ page }) => {
 });
 
 test("TC-10, TC-11: jadwal dapur, rekap komponen, dan perubahan status", async ({ page }) => {
-  await masuk(page, "dapur.sari");
+  await masuk(page, "andini");
   await expect(page).toHaveURL(/\/dashboard$/);
   await page.goto(`/jadwal?tgl=${TGL}`);
   const kartu = kartuJadwal(page, kodeDp);
@@ -187,7 +187,7 @@ test("TC-10, TC-11: jadwal dapur, rekap komponen, dan perubahan status", async (
 });
 
 test("TC-13: laporan manajer konsisten dengan ekspor CSV dan nomor HP tersamar", async ({ page }) => {
-  await masuk(page, "manajer.budi");
+  await masuk(page, "james");
   await expect(page).toHaveURL(/\/dashboard$/);
   const bulan = TGL.slice(0, 7);
   const rentang = `dari=${bulan}-01&sampai=${bulan}-28`;
@@ -210,7 +210,7 @@ test("TC-13: laporan manajer konsisten dengan ekspor CSV dan nomor HP tersamar",
 });
 
 test("TC-14: dashboard pemilik memuat ringkasan usaha", async ({ page }) => {
-  await masuk(page, "pemilik.nur");
+  await masuk(page, "enih");
   await expect(page).toHaveURL(/\/dashboard$/);
   const main = page.locator("main");
   for (const t of ["Omzet bulan ini", "Omzet 6 bulan terakhir", "Menu terlaris bulan ini", "Piutang belum lunas", "Perlu perhatian"]) {
@@ -242,7 +242,7 @@ test("tampilan ponsel 390 px tanpa gulir mendatar", async ({ page }) => {
   const luber = () => page.evaluate(() => document.documentElement.scrollWidth - document.documentElement.clientWidth);
   await page.goto("/");
   expect(await luber(), "/").toBe(0);
-  await masuk(page, "admin.rina");
+  await masuk(page, "wawa");
   await expect(page).toHaveURL(/\/dashboard$/);
   for (const p of ["/dashboard", "/pesanan", "/pesanan/baru", `/pesanan/${kodeDp}`, `/jadwal?tgl=${TGL}`, "/menu-paket", "/pelanggan"]) {
     await page.goto(p);

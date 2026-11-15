@@ -19,7 +19,7 @@ export const metadata: Metadata = {
   alternates: { canonical: "/" },
   openGraph: {
     type: "website", locale: "id_ID", url: "/", siteName: SITUS.nama,
-    title: "Katering Dapur Hebat — Nasi Box & Tumpeng Pamulang", description: SITUS.deskripsi,
+    title: "Katering Dapur Hebat — Nasi Box & Tumpeng Ciputat", description: SITUS.deskripsi,
     images: [{ url: "/menu/paket-hebat-3.jpg", width: 1280, height: 714, alt: "Paket Hebat 3 dari Katering Dapur Hebat" }],
   },
 };
@@ -84,7 +84,7 @@ export default async function Beranda() {
               </h1>
               <Gelombang className="mt-3 w-44" />
               <p className="mt-5 max-w-[46ch] text-lg text-muted 2xl:text-xl">
-                Masakan rumahan untuk rapat kantor, acara sekolah, arisan, dan syukuran di Pamulang dan sekitarnya. Dimasak pagi di hari acara Anda.
+                Masakan rumahan untuk rapat kantor, acara sekolah, arisan, dan syukuran di Ciputat dan sekitarnya. Dimasak pagi di hari acara Anda.
               </p>
               <div className="mt-8 flex flex-wrap gap-3">
                 <a href={tautanWa()} target="_blank" rel="noopener noreferrer" className={`${kelas.tombol} !px-6 !py-3.5 !text-base`}><MessageCircle size={19} aria-hidden /> Pesan lewat WhatsApp</a>

@@ -58,10 +58,10 @@ Login memakai nama pengguna, bukan email.
 
 | Peran | Nama pengguna | Kata sandi | Nama di aplikasi | Menu yang tersedia |
 |---|---|---|---|---|
-| 🧾 Admin Pemesanan | `admin.rina` | `Dapur-59f00acd63` | Rina Oktaviani | Dashboard, Pesanan, Jadwal Produksi, Menu & Paket, Pelanggan |
-| 👩‍🍳 Kepala Dapur | `dapur.sari` | `Dapur-59f00acd63` | Ibu Sari | Dashboard, Jadwal Produksi |
-| 📈 Manajer Operasional | `manajer.budi` | `Dapur-59f00acd63` | Budi Santoso | Dashboard, Pesanan, Laporan |
-| 👑 Pemilik | `pemilik.nur` | `Dapur-59f00acd63` | Hj. Nurhayati | Dashboard, Laporan |
+| 🧾 Admin Pemesanan | `wawa` | `wawaandini0317` | Wawa | Dashboard, Pesanan, Jadwal Produksi, Menu & Paket, Pelanggan |
+| 👩‍🍳 Kepala Dapur | `andini` | `wawaandini0317` | Andini | Dashboard, Jadwal Produksi |
+| 📈 Manajer Operasional | `james` | `wawaandini0317` | James | Dashboard, Pesanan, Laporan |
+| 👑 Pemilik | `enih` | `wawaandini0317` | Ibu Enih | Dashboard, Laporan |
 
 Pengunjung tidak perlu login: halaman depan menampilkan profil, katalog menu, dan tombol pesan lewat WhatsApp ke 0895-4117-63888 dengan pesan pemesanan yang sudah terisi.
 
@@ -78,11 +78,11 @@ Pengunjung tidak perlu login: halaman depan menampilkan profil, katalog menu, da
 
 ### ▶️ Alur yang bisa dicoba
 
-1. Masuk sebagai `admin.rina`, buka **Pesanan → Pesanan baru**, pilih pelanggan dan menu, klik **50%** untuk uang muka, simpan.
-2. Masuk sebagai `dapur.sari`, buka **Jadwal Produksi** pada tanggal kirim pesanan tadi, klik **Kirim** lalu **Selesai**.
-3. Masuk sebagai `admin.rina` lagi, buka pesanan itu, catat pelunasan.
-4. Masuk sebagai `manajer.budi`, buka **Laporan**, coba **Ekspor CSV**.
-5. Masuk sebagai `pemilik.nur` untuk melihat dashboard ringkasan usaha.
+1. Masuk sebagai `wawa`, buka **Pesanan → Pesanan baru**, pilih pelanggan dan menu, klik **50%** untuk uang muka, simpan.
+2. Masuk sebagai `andini`, buka **Jadwal Produksi** pada tanggal kirim pesanan tadi, klik **Kirim** lalu **Selesai**.
+3. Masuk sebagai `wawa` lagi, buka pesanan itu, catat pelunasan.
+4. Masuk sebagai `james`, buka **Laporan**, coba **Ekspor CSV**.
+5. Masuk sebagai `enih` untuk melihat dashboard ringkasan usaha.
 
 ### 🗺️ Halaman
 
@@ -157,16 +157,16 @@ Menurut dosen, data wawancara tidak wajib asli dan boleh dikarang. Data berikut 
 | Data | Nilai | Lokasi |
 |---|---|---|
 | Nama usaha | Katering Dapur Hebat | Laporan, aplikasi |
-| Alamat, jam buka, minimal 25 porsi | Lihat `web/src/lib/situs.ts` | Laporan 1.2, halaman publik |
+| Jam buka, minimal 25 porsi | Lihat `web/src/lib/situs.ts` | Laporan 1.2, halaman publik |
 | Karyawan dan struktur | 8 orang | Laporan 1.1, 1.2 |
-| Narasumber dan nama pengguna | Ibu Hj. Nurhayati, Rina Oktaviani, Budi Santoso, Ibu Sari | Laporan, akun demo |
+| Narasumber dan nama pengguna | Ibu Enih, Wawa, James, Andini | Laporan, akun demo |
 | Wawancara dan observasi | 7 dan 8 November 2026; ringkasan di Lampiran | Laporan 2.1, Lampiran |
 | Alur kerja dan lima masalah | Disusun dari pola umum katering kecil dan dua jurnal | Laporan 1.1, 2.2, 2.3 |
 | Harga menu | Rp22.000–Rp35.000 | Laporan, aplikasi |
 | Angka kelayakan, jadwal P9–P14 | — | Laporan 1.6, 1.7 |
 | Pelanggan dan pesanan | Data contoh hasil seed | Aplikasi |
 
-Yang asli: nama, NIM, dan kelas penulis; tujuh menu beserta komposisinya (`asset/info.txt`) dan fotonya; nomor WhatsApp; 19 sumber daftar pustaka.
+Yang asli: nama, NIM, dan kelas penulis; tujuh menu beserta komposisinya (`asset/info.txt`) dan fotonya; alamat usaha (Jl. Poncol Raya, Cirendeu, Ciputat Timur 15419); nomor WhatsApp; 19 sumber daftar pustaka.
 
 Daftar pustaka: dari 12 jurnal, metadata 10 sudah dicocokkan ke halaman jurnalnya. Dua jurnal (Hidayati dkk. 2023; Prihati dkk. 2022) dan satu lagi yang halamannya meminta login (Saing dkk. 2021) memakai metadata sebagaimana diberikan. Isi yang dikutip hanya dari abstrak yang terbaca; jurnal lain dikutip untuk pernyataan umum sesuai judulnya.
 
