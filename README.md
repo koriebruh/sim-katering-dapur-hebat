@@ -15,7 +15,7 @@ Proyek mata kuliah Sistem Informasi Manajemen (Teknik Informatika, Universitas P
 | Aplikasi F-01 sampai F-11 | Selesai dan online |
 | Mockup di Canva (diminta template) | **Belum**: unggah `mockup/papan-mockup.png` atau ketujuh PNG ke Canva, isi link di Lampiran |
 | Papan mockup di FigCraft | Selesai: `mockup/mockup-sim-katering.figcraft` dan `mockup/papan-mockup.png` (7 layar aplikasi disusun berjudul) |
-| Bahan presentasi | Draf 12 slide: `Presentasi-SIM-Katering-Dapur-Hebat.pptx` (tidak ikut di repo) |
+| Bahan presentasi | Draf 12 slide: `Presentasi-SIM-Katering-Dapur-Hebat.pptx` dan `.pdf` (tidak ikut di repo) |
 | Presentasi (P13) dan revisi (P14) | Belum |
 
 ## Aplikasi
@@ -42,7 +42,7 @@ npm run db:up && npm run db:migrate && npm run db:seed
 npm run dev
 ```
 
-`npm test` menjalankan 23 unit test aturan bisnis; `npm run build` dan `npm run lint` harus lulus sebelum deploy. Deploy: `vercel deploy --prod` dari folder `web/` (migrasi database berjalan otomatis saat build).
+`npm test` menjalankan 23 unit test aturan bisnis dan `npm run test:e2e` menjalankan uji alur di browser (butuh database lokal yang sudah di-seed); `npm run build` dan `npm run lint` harus lulus sebelum deploy. Deploy: `vercel deploy --prod` dari folder `web/` (migrasi database berjalan otomatis saat build).
 
 ### Keamanan yang diterapkan
 
@@ -61,11 +61,10 @@ Satu kompromi yang disengaja: seseorang masih bisa mengunci satu akun selama 15 
 | Uji | Hasil |
 |---|---|
 | Unit test (`npm test`) | 23 lulus |
-| Alur TC-01 sampai TC-15 di browser, build produksi lokal | 33 pemeriksaan lulus, termasuk validasi server dan penolakan akses per peran |
-| Tampilan ponsel 390 px, 9 halaman | Tanpa gulir mendatar |
+| Uji alur otomatis (`npm run test:e2e`), TC-01 sampai TC-15 + tampilan ponsel 390 px | 12 uji lulus, termasuk validasi server, penolakan akses per peran, dan pemalsuan status |
 | Uji cepat di situs online | 13 pemeriksaan lulus |
 
-Uji alur dijalankan lewat skrip Playwright sekali jalan, belum disimpan sebagai rangkaian uji otomatis di repo.
+Uji alur ada di `web/e2e/alur.e2e.ts` (Playwright, memakai Chrome yang terpasang). Uji ini menulis data contoh ke database lokal, jadi jangan diarahkan ke database produksi.
 
 ## Data dummy yang harus diganti
 
@@ -94,7 +93,7 @@ Catatan menu, `info.txt` dibanding foto: ayam serundeng dan Paket Hebat 2 ada sa
 - [ ] Unggah gambar di `mockup/` ke Canva, isi link Canva di Lampiran
 - [ ] Logo Universitas Pamulang di cover (tidak ditemukan sumber resmi yang bisa diunduh otomatis)
 - [ ] Bukti observasi/wawancara di Lampiran
-- [ ] Perbarui daftar isi di Word (klik kanan → Update Field)
+- [ ] Cek nomor halaman daftar isi di Word. Daftar isi sudah terisi otomatis dari hasil render LibreOffice; bila Word memecah halaman sedikit berbeda, klik kanan daftar isi → Update Field
 - [ ] Sesuaikan slide presentasi dengan data asli dan arahan dosen; presentasi P13, lalu revisi P14 dan Tabel Catatan Revisi
 
 ## Isi folder
