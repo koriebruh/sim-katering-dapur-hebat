@@ -3,13 +3,13 @@
 Proyek mata kuliah Sistem Informasi Manajemen (Teknik Informatika, Universitas Pamulang, 2026): laporan perancangan SIM dengan metode SDLC, ditambah purwarupa aplikasi web yang dibangun mengikuti rancangan itu.
 
 - Aplikasi: https://sim-katering-dapur-hebat.vercel.app
-- Laporan: `Laporan-SIM-Katering-Dapur-Hebat.docx` (32 halaman; tidak ikut di repo karena memuat nama dan NIM)
+- Laporan: `Laporan-SIM-Katering-Dapur-Hebat.docx` (33 halaman; tidak ikut di repo karena memuat nama dan NIM)
 
 ## Status
 
 | Bagian | Status |
 |---|---|
-| Laporan 6 bab + daftar pustaka + lampiran | Draf lengkap, **data usaha masih dummy** |
+| Laporan 6 bab + daftar pustaka + lampiran | Lengkap dengan logo, daftar isi, dan ringkasan wawancara; data usaha karangan (diizinkan dosen), **kelas di cover masih dummy** |
 | 4 diagram (flowchart, DFD konteks, DFD level 1, ERD) | Selesai, `.drawio` + `.png` |
 | 7 gambar antarmuka di laporan | Tangkapan layar aplikasi asli |
 | Aplikasi F-01 sampai F-11 | Selesai dan online |
@@ -68,7 +68,7 @@ Uji alur ada di `web/e2e/alur.e2e.ts` (Playwright, memakai Chrome yang terpasang
 
 ## Data dummy yang harus diganti
 
-Template laporan meminta fakta hasil observasi/wawancara. Yang berikut ini karangan dan wajib diganti sebelum laporan dikumpulkan:
+Menurut dosen, data wawancara tidak wajib asli dan boleh dikarang. Yang berikut ini karangan; ganti bila data asli katering tersedia:
 
 | Data | Nilai dummy | Lokasi |
 |---|---|---|
@@ -89,10 +89,10 @@ Catatan menu, `info.txt` dibanding foto: ayam serundeng dan Paket Hebat 2 ada sa
 
 ## Yang masih harus dikerjakan
 
-- [ ] Ganti data dummy dengan data asli katering (laporan: `build_laporan.py`; aplikasi: `web/src/lib/situs.ts` dan halaman Menu/Pelanggan)
+- [ ] Opsional: ganti data dummy dengan data asli katering (laporan: `build_laporan.py`; aplikasi: `web/src/lib/situs.ts` dan halaman Menu/Pelanggan). Kelas di cover (05TPLE004) tetap perlu diganti
 - [ ] Unggah gambar di `mockup/` ke Canva, isi link Canva di Lampiran
-- [ ] Logo Universitas Pamulang di cover (tidak ditemukan sumber resmi yang bisa diunduh otomatis)
-- [ ] Bukti observasi/wawancara di Lampiran
+- [x] Logo Universitas Pamulang di cover dan slide judul (`UNPAM_logo1.png`, tidak ikut di repo)
+- [x] Ringkasan wawancara di Lampiran (karangan, sesuai izin dosen)
 - [ ] Cek nomor halaman daftar isi di Word. Daftar isi sudah terisi otomatis dari hasil render LibreOffice; bila Word memecah halaman sedikit berbeda, klik kanan daftar isi → Update Field
 - [ ] Sesuaikan slide presentasi dengan data asli dan arahan dosen; presentasi P13, lalu revisi P14 dan Tabel Catatan Revisi
 
