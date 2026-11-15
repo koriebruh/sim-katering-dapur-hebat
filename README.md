@@ -13,8 +13,9 @@ Proyek mata kuliah Sistem Informasi Manajemen (Teknik Informatika, Universitas P
 | 4 diagram (flowchart, DFD konteks, DFD level 1, ERD) | Selesai, `.drawio` + `.png` |
 | 7 gambar antarmuka di laporan | Tangkapan layar aplikasi asli |
 | Aplikasi F-01 sampai F-11 | Selesai dan online |
-| Mockup di Canva (diminta template) | **Belum**: unggah PNG di `mockup/` ke Canva, isi link di Lampiran |
-| Mockup di FigCraft | **Belum dikerjakan** |
+| Mockup di Canva (diminta template) | **Belum**: unggah `mockup/papan-mockup.png` atau ketujuh PNG ke Canva, isi link di Lampiran |
+| Papan mockup di FigCraft | Selesai: `mockup/mockup-sim-katering.figcraft` dan `mockup/papan-mockup.png` (7 layar aplikasi disusun berjudul) |
+| Bahan presentasi | Draf 12 slide: `Presentasi-SIM-Katering-Dapur-Hebat.pptx` (tidak ikut di repo) |
 | Presentasi (P13) dan revisi (P14) | Belum |
 
 ## Aplikasi
@@ -91,10 +92,10 @@ Catatan menu, `info.txt` dibanding foto: ayam serundeng dan Paket Hebat 2 ada sa
 
 - [ ] Ganti data dummy dengan data asli katering (laporan: `build_laporan.py`; aplikasi: `web/src/lib/situs.ts` dan halaman Menu/Pelanggan)
 - [ ] Unggah gambar di `mockup/` ke Canva, isi link Canva di Lampiran
-- [ ] Logo Universitas Pamulang di cover
+- [ ] Logo Universitas Pamulang di cover (tidak ditemukan sumber resmi yang bisa diunduh otomatis)
 - [ ] Bukti observasi/wawancara di Lampiran
 - [ ] Perbarui daftar isi di Word (klik kanan → Update Field)
-- [ ] Bahan presentasi P13, lalu revisi P14 dan Tabel Catatan Revisi
+- [ ] Sesuaikan slide presentasi dengan data asli dan arahan dosen; presentasi P13, lalu revisi P14 dan Tabel Catatan Revisi
 
 ## Isi folder
 
@@ -103,7 +104,7 @@ Catatan menu, `info.txt` dibanding foto: ayam serundeng dan Paket Hebat 2 ada sa
 | `web/` | Aplikasi |
 | `docs/` | Rencana proyek dan keputusan |
 | `diagram/` | 4 diagram, `.drawio` + `.png` |
-| `mockup/` | 7 tangkapan layar aplikasi yang dipakai laporan (file `.html` adalah mockup awal) |
+| `mockup/` | 7 tangkapan layar aplikasi yang dipakai laporan, papan mockup FigCraft (file `.html` adalah mockup awal) |
 | `asset/` | Foto menu dan `info.txt` |
 | `build_gambar.py` | Membuat ulang diagram |
 | `build_laporan.py` | Membuat ulang laporan dari template (tidak ikut di repo) |
