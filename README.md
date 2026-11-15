@@ -1,59 +1,72 @@
 # SIM Katering Dapur Hebat
 
-Proyek mata kuliah Sistem Informasi Manajemen (Teknik Informatika, Universitas Pamulang, 2026): laporan perancangan SIM dengan metode SDLC, ditambah purwarupa aplikasi web yang dibangun mengikuti rancangan itu.
+Proyek mata kuliah Sistem Informasi Manajemen, Program Studi Teknik Informatika, Universitas Pamulang, 2026: laporan perancangan SIM dengan metode SDLC, bahan presentasi, dan purwarupa aplikasi web yang dibangun mengikuti rancangan itu.
 
-- Aplikasi: https://sim-katering-dapur-hebat.vercel.app
-- Laporan: [`Laporan-SIM-Katering-Dapur-Hebat.pdf`](Laporan-SIM-Katering-Dapur-Hebat.pdf) (33 halaman)
-- Presentasi: [`Presentasi-SIM-Katering-Dapur-Hebat.pptx`](Presentasi-SIM-Katering-Dapur-Hebat.pptx) (17 slide)
-- Mockup di Canva: https://canva.link/f2uukvtx89xu4l5
-- Penulis: Syahwa Rahma Andini, NIM 241011402529, kelas 05TPLP012
+| | |
+|---|---|
+| Penulis | Syahwa Rahma Andini, NIM 241011402529, kelas 05TPLP012 |
+| Aplikasi | https://sim-katering-dapur-hebat.vercel.app |
+| Laporan | [`Laporan-SIM-Katering-Dapur-Hebat.pdf`](Laporan-SIM-Katering-Dapur-Hebat.pdf), 33 halaman |
+| Presentasi | [`Presentasi-SIM-Katering-Dapur-Hebat.pptx`](Presentasi-SIM-Katering-Dapur-Hebat.pptx) dan [`.pdf`](Presentasi-SIM-Katering-Dapur-Hebat.pdf), 17 slide |
+| Mockup di Canva | https://canva.link/f2uukvtx89xu4l5 |
 
 ## Status
 
 | Bagian | Status |
 |---|---|
-| Laporan 6 bab + daftar pustaka + lampiran | Lengkap dengan logo, daftar isi, dan ringkasan wawancara; data usaha karangan (diizinkan dosen) |
-| 4 diagram (flowchart, DFD konteks, DFD level 1, ERD) | Selesai, `.drawio` + `.png` |
-| 7 gambar antarmuka di laporan | Tangkapan layar aplikasi asli |
+| Laporan: 6 bab, daftar pustaka 19 sumber, lampiran, logo, daftar isi | Selesai |
+| Diagram: flowchart sistem berjalan, DFD konteks, DFD level 1, ERD | Selesai |
+| Mockup tujuh layar: papan FigCraft dan Canva | Selesai |
 | Aplikasi F-01 sampai F-11 | Selesai dan online |
-| Mockup di Canva (diminta template) | Selesai: https://canva.link/f2uukvtx89xu4l5 (siapa saja dengan link dapat melihat), link juga tertulis di Lampiran laporan |
-| Papan mockup di FigCraft | Selesai: `mockup/mockup-sim-katering.figcraft` dan `mockup/papan-mockup.png` (7 layar aplikasi disusun berjudul) |
-| Bahan presentasi | 17 slide, `.pptx` dan `.pdf`, huruf Plus Jakarta Sans seperti di aplikasi |
-| Presentasi (P13) dan revisi (P14) | Belum |
+| Uji: 23 unit test, 12 uji alur otomatis | Lulus |
+| Bahan presentasi 17 slide | Selesai |
+
+Agenda berikutnya, bukan pekerjaan yang tertinggal: presentasi di P13, lalu revisi di P14 dan pengisian Tabel Catatan Revisi di Lampiran laporan.
 
 ## Dokumen
 
 | File | Isi |
 |---|---|
-| [`Laporan-SIM-Katering-Dapur-Hebat.pdf`](Laporan-SIM-Katering-Dapur-Hebat.pdf) | Laporan proyek, 33 halaman: 6 bab, daftar pustaka (19 sumber), lampiran |
-| [`Presentasi-SIM-Katering-Dapur-Hebat.pptx`](Presentasi-SIM-Katering-Dapur-Hebat.pptx) | Bahan presentasi, 17 slide dengan catatan pembicara, dapat diedit di PowerPoint. Memakai huruf Plus Jakarta Sans: pasang dulu file di `fonts/` bila belum ada di komputer, kalau tidak PowerPoint menggantinya dengan huruf lain |
+| [`Laporan-SIM-Katering-Dapur-Hebat.pdf`](Laporan-SIM-Katering-Dapur-Hebat.pdf) | Laporan proyek |
+| [`Presentasi-SIM-Katering-Dapur-Hebat.pptx`](Presentasi-SIM-Katering-Dapur-Hebat.pptx) | Bahan presentasi dengan catatan pembicara, dapat diedit di PowerPoint |
 | [`Presentasi-SIM-Katering-Dapur-Hebat.pdf`](Presentasi-SIM-Katering-Dapur-Hebat.pdf) | Bahan presentasi versi PDF |
-| [`mockup/papan-mockup.png`](mockup/papan-mockup.png) | Papan mockup tujuh layar (sumber: `mockup/mockup-sim-katering.figcraft`), juga di Canva: https://canva.link/f2uukvtx89xu4l5 |
-| `diagram/` | Flowchart sistem berjalan, DFD konteks, DFD level 1, ERD (`.drawio` + `.png`) |
+| [`mockup/papan-mockup.png`](mockup/papan-mockup.png) | Papan mockup tujuh layar; sumbernya `mockup/mockup-sim-katering.figcraft` |
+| `diagram/` | Empat diagram, masing-masing `.drawio` dan `.png` |
+| `fonts/` | Huruf Plus Jakarta Sans (lisensi OFL) |
 
-Versi Word laporan (`.docx`), template dosen, logo, dan skrip pembuat laporan tidak ikut di repo.
+Dua catatan pemakaian:
+
+- File presentasi `.pptx` memakai huruf Plus Jakarta Sans, sama dengan aplikasi. Di komputer yang belum memilikinya, pasang dulu file di `fonts/`; tanpa itu PowerPoint mengganti hurufnya dan tata letak bisa bergeser. Versi PDF tidak terpengaruh.
+- Versi Word laporan, template dosen, logo, dan skrip pembuat laporan tidak ikut di repo. Jika versi Word diedit, klik kanan daftar isi lalu pilih Update Field agar nomor halamannya mengikuti.
 
 ## Aplikasi
 
-Alamat: https://sim-katering-dapur-hebat.vercel.app
-
-Halaman login: https://sim-katering-dapur-hebat.vercel.app/login
+- Alamat: https://sim-katering-dapur-hebat.vercel.app
+- Login karyawan: https://sim-katering-dapur-hebat.vercel.app/login
 
 ### Akun demo
 
-Kata sandi keempat akun sama: **`Dapur-59f00acd63`**
+Login memakai nama pengguna, bukan email.
 
-| Peran | Nama pengguna | Kata sandi | Nama di aplikasi | Halaman yang bisa dibuka | Yang bisa dilakukan |
-|---|---|---|---|---|---|
-| Admin Pemesanan | `admin.rina` | `Dapur-59f00acd63` | Rina Oktaviani | Dashboard, Pesanan, Jadwal Produksi, Menu & Paket, Pelanggan | Kelola menu dan pelanggan, catat pesanan, catat uang muka/pelunasan, ubah status, batalkan pesanan, cari pesanan |
-| Kepala Dapur | `dapur.sari` | `Dapur-59f00acd63` | Ibu Sari | Dashboard, Jadwal Produksi | Lihat jadwal produksi dan rekap komponen menu, tandai dikirim/selesai |
-| Manajer Operasional | `manajer.budi` | `Dapur-59f00acd63` | Budi Santoso | Dashboard, Pesanan, Laporan | Lihat pesanan (nomor HP tersamar), laporan penjualan dan piutang, ekspor CSV, cetak |
-| Pemilik | `pemilik.nur` | `Dapur-59f00acd63` | Hj. Nurhayati | Dashboard, Laporan | Dashboard omzet, tren 6 bulan, menu terlaris, piutang |
-| Pengunjung | tanpa login | — | — | Halaman publik | Lihat profil dan katalog menu, pesan lewat WhatsApp ke 0895-4117-63888 dengan pesan pemesanan yang sudah terisi |
+| Peran | Nama pengguna | Kata sandi | Nama di aplikasi | Menu yang tersedia |
+|---|---|---|---|---|
+| Admin Pemesanan | `admin.rina` | `Dapur-59f00acd63` | Rina Oktaviani | Dashboard, Pesanan, Jadwal Produksi, Menu & Paket, Pelanggan |
+| Kepala Dapur | `dapur.sari` | `Dapur-59f00acd63` | Ibu Sari | Dashboard, Jadwal Produksi |
+| Manajer Operasional | `manajer.budi` | `Dapur-59f00acd63` | Budi Santoso | Dashboard, Pesanan, Laporan |
+| Pemilik | `pemilik.nur` | `Dapur-59f00acd63` | Hj. Nurhayati | Dashboard, Laporan |
 
-Login memakai nama pengguna, bukan email. Akun ini hanya untuk demo dan seluruh datanya contoh. Karena kata sandinya tertulis di repo publik, siapa pun bisa masuk dan mengubah data demo; jangan pakai akun atau kata sandi ini untuk data sungguhan. Setelah 5 kali salah sandi, login akun itu ditahan 15 menit.
+Pengunjung tidak perlu login: halaman depan menampilkan profil, katalog menu, dan tombol pesan lewat WhatsApp ke 0895-4117-63888 dengan pesan pemesanan yang sudah terisi.
 
-Untuk lokal, kata sandi akun mengikuti `SEED_PASSWORD` di `web/.env.local` saat `npm run db:seed` dijalankan.
+Akun ini hanya untuk demo dan seluruh datanya contoh. Karena kata sandinya tertulis di repo publik, siapa pun bisa masuk dan mengubah data demo; jangan pakai akun atau kata sandi ini untuk data sungguhan. Setelah 5 kali salah sandi, login akun itu ditahan 15 menit.
+
+### Yang bisa dilakukan tiap peran
+
+| Peran | Kemampuan |
+|---|---|
+| Admin Pemesanan | Kelola menu dan pelanggan, catat pesanan, catat uang muka dan pelunasan, ubah status, batalkan pesanan, cari pesanan |
+| Kepala Dapur | Lihat jadwal produksi per tanggal dan rekap komponen menu, tandai dikirim dan selesai |
+| Manajer Operasional | Lihat pesanan (nomor HP tersamar), laporan penjualan dan piutang, ekspor CSV, cetak |
+| Pemilik | Dashboard omzet, tren enam bulan, menu terlaris, tagihan yang lewat |
 
 ### Alur yang bisa dicoba
 
@@ -76,7 +89,9 @@ Untuk lokal, kata sandi akun mengikuti `SEED_PASSWORD` di `web/.env.local` saat 
 | `/pelanggan` | Kelola pelanggan | Admin |
 | `/laporan`, `/laporan/ekspor` | Laporan penjualan dan piutang, ekspor CSV | Manajer, pemilik |
 
-Teknologi: Next.js 16 (App Router), PostgreSQL (Neon lewat Vercel) + Drizzle, Tailwind CSS v4, Motion, Lucide. Rencana dan keputusan ada di [`docs/PROJECT.md`](docs/PROJECT.md) dan [`docs/features/M0-kerangka.md`](docs/features/M0-kerangka.md).
+### Teknologi
+
+Next.js 16 (App Router), PostgreSQL (Neon lewat Vercel) dengan Drizzle, Tailwind CSS v4, Motion, Lucide. Rencana dan keputusan teknis ada di [`docs/PROJECT.md`](docs/PROJECT.md) dan [`docs/features/M0-kerangka.md`](docs/features/M0-kerangka.md).
 
 ### Menjalankan di lokal
 
@@ -88,16 +103,25 @@ npm run db:up && npm run db:migrate && npm run db:seed
 npm run dev
 ```
 
-`npm test` menjalankan 23 unit test aturan bisnis dan `npm run test:e2e` menjalankan uji alur di browser (butuh database lokal yang sudah di-seed); `npm run build` dan `npm run lint` harus lulus sebelum deploy. Deploy: `vercel deploy --prod` dari folder `web/` (migrasi database berjalan otomatis saat build).
+Di lokal, kata sandi akun mengikuti `SEED_PASSWORD` di `web/.env.local` saat `npm run db:seed` dijalankan.
 
-### Keamanan yang diterapkan
+| Perintah | Guna |
+|---|---|
+| `npm test` | 23 unit test aturan bisnis |
+| `npm run test:e2e` | 12 uji alur di browser; butuh database lokal yang sudah di-seed dan Chrome terpasang |
+| `npm run lint`, `npm run build` | Harus lulus sebelum deploy |
+| `vercel deploy --prod` | Deploy dari folder `web/`; migrasi database berjalan otomatis saat build |
+
+Uji alur menulis data contoh ke database lokal, jadi jangan diarahkan ke database produksi.
+
+### Keamanan
 
 - Kata sandi di-hash dengan bcrypt; cookie sesi `httpOnly`, `secure`, bertanda tangan, berlaku 8 jam.
 - Hak akses diperiksa di server pada setiap halaman dan aksi; peran dibaca ulang dari database tiap permintaan.
 - Login dibatasi: 5 gagal per akun + IP, 20 per IP, 20 per akun dalam 15 menit.
 - Nomor HP pelanggan tersamar untuk selain admin dan tidak tampil di jadwal dapur.
 - Semua masukan divalidasi di server; total, uang muka, dan sisa dihitung server di dalam transaksi database.
-- Setiap perubahan pesanan, pembayaran, menu, dan pelanggan tercatat di `audit_log`.
+- Perubahan pesanan, pembayaran, menu, dan pelanggan tercatat di `audit_log`.
 - Header keamanan, halaman internal `noindex`, sel CSV dinetralkan dari rumus.
 
 Satu kompromi yang disengaja: seseorang masih bisa mengunci satu akun selama 15 menit dengan 20 kali salah login. Mencegahnya sepenuhnya butuh CAPTCHA.
@@ -106,53 +130,41 @@ Satu kompromi yang disengaja: seseorang masih bisa mengunci satu akun selama 15 
 
 | Uji | Hasil |
 |---|---|
-| Unit test (`npm test`) | 23 lulus |
-| Uji alur otomatis (`npm run test:e2e`), TC-01 sampai TC-15 + tampilan ponsel 390 px | 12 uji lulus, termasuk validasi server, penolakan akses per peran, dan pemalsuan status |
-| Uji cepat di situs online | 13 pemeriksaan lulus |
+| Unit test | 23 lulus |
+| Uji alur otomatis TC-01 sampai TC-15 dan tampilan ponsel 390 px | 12 lulus, termasuk validasi server, penolakan akses per peran, dan pemalsuan status |
+| Login keempat akun demo di situs online, semua menu terbuka | Lulus |
 
-Uji alur ada di `web/e2e/alur.e2e.ts` (Playwright, memakai Chrome yang terpasang). Uji ini menulis data contoh ke database lokal, jadi jangan diarahkan ke database produksi.
+## Catatan tentang data
 
-## Data dummy yang harus diganti
+Menurut dosen, data wawancara tidak wajib asli dan boleh dikarang. Data berikut adalah karangan untuk keperluan tugas:
 
-Menurut dosen, data wawancara tidak wajib asli dan boleh dikarang. Yang berikut ini karangan; ganti bila data asli katering tersedia:
-
-| Data | Nilai dummy | Lokasi |
+| Data | Nilai | Lokasi |
 |---|---|---|
 | Nama usaha | Katering Dapur Hebat | Laporan, aplikasi |
 | Alamat, jam buka, minimal 25 porsi | Lihat `web/src/lib/situs.ts` | Laporan 1.2, halaman publik |
 | Karyawan dan struktur | 8 orang | Laporan 1.1, 1.2 |
 | Narasumber dan nama pengguna | Ibu Hj. Nurhayati, Rina Oktaviani, Budi Santoso, Ibu Sari | Laporan, akun demo |
-| Tanggal wawancara/observasi | 7 dan 8 November 2026 | Laporan 2.1 |
-| Alur kerja dan 5 masalah | Disusun dari pola umum katering kecil dan dua jurnal, bukan wawancara | Laporan 1.1, 2.2, 2.3 |
+| Wawancara dan observasi | 7 dan 8 November 2026; ringkasan di Lampiran | Laporan 2.1, Lampiran |
+| Alur kerja dan lima masalah | Disusun dari pola umum katering kecil dan dua jurnal | Laporan 1.1, 2.2, 2.3 |
 | Harga menu | Rp22.000–Rp35.000 | Laporan, aplikasi |
 | Angka kelayakan, jadwal P9–P14 | — | Laporan 1.6, 1.7 |
 | Pelanggan dan pesanan | Data contoh hasil seed | Aplikasi |
 
-Bukan dummy: nama dan NIM penulis, 7 menu beserta komposisinya (`asset/info.txt`), foto menu, dan 19 sumber daftar pustaka. Dari 12 jurnal yang diberikan, 8 metadatanya sudah dicocokkan ke halaman jurnal; isi yang dikutip hanya dari abstrak yang terbaca.
+Yang asli: nama, NIM, dan kelas penulis; tujuh menu beserta komposisinya (`asset/info.txt`) dan fotonya; nomor WhatsApp; 19 sumber daftar pustaka.
 
-Catatan menu, `info.txt` dibanding foto: ayam serundeng dan Paket Hebat 2 ada sambal di foto tetapi tidak di daftar; cumi cabe ijo tertulis mie goreng tetapi di foto tampak soun/bihun; Tumpeng Mini memakai nasi kuning yang tidak tertulis.
+Daftar pustaka: dari 12 jurnal, metadata 10 sudah dicocokkan ke halaman jurnalnya. Dua jurnal (Hidayati dkk. 2023; Prihati dkk. 2022) dan satu lagi yang halamannya meminta login (Saing dkk. 2021) memakai metadata sebagaimana diberikan. Isi yang dikutip hanya dari abstrak yang terbaca; jurnal lain dikutip untuk pernyataan umum sesuai judulnya.
 
-## Yang masih harus dikerjakan
-
-- [ ] Opsional: ganti data dummy dengan data asli katering (laporan: `build_laporan.py`; aplikasi: `web/src/lib/situs.ts` dan halaman Menu/Pelanggan)
-- [x] Papan mockup diunggah ke Canva dan link-nya diisi di Lampiran
-- [x] Logo Universitas Pamulang di cover dan slide judul (`UNPAM_logo1.png`, tidak ikut di repo)
-- [x] Ringkasan wawancara di Lampiran (karangan, sesuai izin dosen)
-- [ ] Cek nomor halaman daftar isi di Word. Daftar isi sudah terisi otomatis dari hasil render LibreOffice; bila Word memecah halaman sedikit berbeda, klik kanan daftar isi → Update Field
-- [ ] Sesuaikan slide presentasi dengan data asli dan arahan dosen; presentasi P13, lalu revisi P14 dan Tabel Catatan Revisi
+Komposisi menu mengikuti `asset/info.txt`. Foto menunjukkan tiga perbedaan kecil yang belum dipastikan ke pemilik katering: ayam serundeng dan Paket Hebat 2 tampak memakai sambal, cumi cabe ijo tampak memakai soun atau bihun (tertulis mie goreng), dan Tumpeng Mini memakai nasi kuning yang tidak tertulis.
 
 ## Isi folder
 
 | Path | Isi |
 |---|---|
 | `web/` | Aplikasi |
-| `docs/` | Rencana proyek dan keputusan |
-| `diagram/` | 4 diagram, `.drawio` + `.png` |
-| `mockup/` | 7 tangkapan layar aplikasi yang dipakai laporan, papan mockup FigCraft (file `.html` adalah mockup awal) |
+| `docs/` | Rencana proyek dan keputusan teknis |
+| `diagram/` | Empat diagram, `.drawio` dan `.png` |
+| `mockup/` | Tujuh tangkapan layar aplikasi yang dipakai laporan, papan mockup FigCraft; file `.html` adalah mockup awal |
 | `asset/` | Foto menu dan `info.txt` |
-| `fonts/` | Huruf Plus Jakarta Sans (lisensi OFL) untuk membuka file presentasi |
+| `fonts/` | Huruf Plus Jakarta Sans |
 | `build_gambar.py` | Membuat ulang diagram |
-| `build_laporan.py` | Membuat ulang laporan `.docx` dari template (tidak ikut di repo) |
 | `Laporan-*.pdf`, `Presentasi-*` | Laporan dan bahan presentasi |
-
-Mengedit laporan langsung di Word boleh, tetapi jangan jalankan `build_laporan.py` setelahnya karena skrip itu menimpa file laporan.
