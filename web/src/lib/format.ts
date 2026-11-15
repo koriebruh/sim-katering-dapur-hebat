@@ -24,3 +24,15 @@ export const jam = (d: Date | string) =>
   new Date(d).toLocaleTimeString("id-ID", { hour: "2-digit", minute: "2-digit", timeZone: ZONA });
 export const tanggalPanjang = (d: Date | string) =>
   new Date(d).toLocaleDateString("id-ID", { weekday: "long", day: "numeric", month: "long", year: "numeric", timeZone: ZONA });
+
+/** Alamat IPv6 dikelompokkan per /64 (satu pelanggan biasanya memegang satu /64); IPv4 apa adanya. */
+export function kelompokIp(ip: string) {
+  const v4 = ip.match(/^::ffff:(\d+\.\d+\.\d+\.\d+)$/i);
+  if (v4) return v4[1];
+  if (!ip.includes(":")) return ip;
+  const [kiri, kanan = ""] = ip.split("::");
+  const a = kiri ? kiri.split(":") : [];
+  const b = kanan ? kanan.split(":") : [];
+  const penuh = ip.includes("::") ? [...a, ...Array(Math.max(0, 8 - a.length - b.length)).fill("0"), ...b] : a;
+  return penuh.slice(0, 4).map((h) => h.toLowerCase().replace(/^0+(?=.)/, "")).join(":") + "::/64";
+}
