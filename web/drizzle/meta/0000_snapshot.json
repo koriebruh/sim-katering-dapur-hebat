@@ -1,5 +1,5 @@
 {
-  "id": "068b6d99-6a03-4026-9ae0-3fd9de9a2188",
+  "id": "f8f0305e-b63a-42ad-863e-f4343357904b",
   "prevId": "00000000-0000-0000-0000-000000000000",
   "version": "7",
   "dialect": "postgresql",
@@ -466,9 +466,9 @@
           "primaryKey": false,
           "notNull": true
         },
-        "berhasil": {
-          "name": "berhasil",
-          "type": "boolean",
+        "ip": {
+          "name": "ip",
+          "type": "varchar(45)",
           "primaryKey": false,
           "notNull": true
         },
@@ -486,6 +486,33 @@
           "columns": [
             {
               "expression": "username",
+              "isExpression": false,
+              "asc": true,
+              "nulls": "last"
+            },
+            {
+              "expression": "ip",
+              "isExpression": false,
+              "asc": true,
+              "nulls": "last"
+            },
+            {
+              "expression": "dibuat_pada",
+              "isExpression": false,
+              "asc": true,
+              "nulls": "last"
+            }
+          ],
+          "isUnique": false,
+          "concurrently": false,
+          "method": "btree",
+          "with": {}
+        },
+        "percobaan_login_ip_idx": {
+          "name": "percobaan_login_ip_idx",
+          "columns": [
+            {
+              "expression": "ip",
               "isExpression": false,
               "asc": true,
               "nulls": "last"

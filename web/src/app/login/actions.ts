@@ -6,7 +6,7 @@ import { redirect } from "next/navigation";
 import { z } from "zod";
 import { db } from "@/db";
 import { pengguna } from "@/db/schema";
-import { catatLogin, loginDiblokir } from "@/lib/rate-limit";
+import { catatPercobaan, hapusPercobaan, ipKlien } from "@/lib/rate-limit";
 import { buatSesi, hapusSesi } from "@/lib/session";
 
 const Skema = z.object({
@@ -26,8 +26,10 @@ export async function masuk(_: StatusLogin, form: FormData): Promise<StatusLogin
   if (!data.success) return { pesan: GAGAL };
   const { username, password } = data.data;
 
-  if (await loginDiblokir(username)) {
-    return { pesan: "Terlalu banyak percobaan gagal. Coba lagi dalam 15 menit." };
+  // Dicatat sebelum kata sandi diperiksa; percobaan yang melewati batas tidak pernah sampai ke bcrypt.
+  const ip = await ipKlien();
+  if ((await catatPercobaan(username, ip)).diblokir) {
+    return { pesan: "Terlalu banyak percobaan. Coba lagi dalam 15 menit." };
   }
 
   const [u] = await db
@@ -35,8 +37,8 @@ export async function masuk(_: StatusLogin, form: FormData): Promise<StatusLogin
     .from(pengguna).where(eq(pengguna.username, username)).limit(1);
   const cocok = await bcrypt.compare(password, u?.hash ?? HASH_PALSU);
   const sah = Boolean(u && u.aktif && cocok);
-  await catatLogin(username, sah);
   if (!sah) return { pesan: GAGAL };
+  await hapusPercobaan(username, ip);
 
   await buatSesi(u.id);
   redirect("/dashboard");

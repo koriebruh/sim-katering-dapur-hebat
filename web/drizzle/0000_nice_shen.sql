@@ -66,7 +66,7 @@ CREATE TABLE "pengguna" (
 CREATE TABLE "percobaan_login" (
 	"id" serial PRIMARY KEY NOT NULL,
 	"username" varchar(30) NOT NULL,
-	"berhasil" boolean NOT NULL,
+	"ip" varchar(45) NOT NULL,
 	"dibuat_pada" timestamp with time zone DEFAULT now() NOT NULL
 );
 --> statement-breakpoint
@@ -95,6 +95,7 @@ ALTER TABLE "pesanan" ADD CONSTRAINT "pesanan_pelanggan_id_pelanggan_id_fk" FORE
 ALTER TABLE "pesanan" ADD CONSTRAINT "pesanan_pengguna_id_pengguna_id_fk" FOREIGN KEY ("pengguna_id") REFERENCES "public"."pengguna"("id") ON DELETE no action ON UPDATE no action;--> statement-breakpoint
 CREATE INDEX "detail_pesanan_idx" ON "detail_pesanan" USING btree ("pesanan_id");--> statement-breakpoint
 CREATE INDEX "pembayaran_pesanan_idx" ON "pembayaran" USING btree ("pesanan_id");--> statement-breakpoint
-CREATE INDEX "percobaan_login_idx" ON "percobaan_login" USING btree ("username","dibuat_pada");--> statement-breakpoint
+CREATE INDEX "percobaan_login_idx" ON "percobaan_login" USING btree ("username","ip","dibuat_pada");--> statement-breakpoint
+CREATE INDEX "percobaan_login_ip_idx" ON "percobaan_login" USING btree ("ip","dibuat_pada");--> statement-breakpoint
 CREATE INDEX "pesanan_tgl_kirim_idx" ON "pesanan" USING btree ("tgl_kirim");--> statement-breakpoint
 CREATE INDEX "pesanan_status_idx" ON "pesanan" USING btree ("status");

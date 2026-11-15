@@ -12,7 +12,7 @@ Fondasi aplikasi di `web/`: Next.js 16 (App Router), skema Postgres lewat Drizzl
 |---|---|---|
 | 1 | Akun benar → login → masuk dashboard sesuai peran | manual + Playwright (M5), TC-01 |
 | 2 | Kata sandi salah → pesan seragam, tetap di halaman login | TC-02 |
-| 3 | 5 kali gagal dalam 15 menit → login akun itu ditolak sementara | manual |
+| 3 | 5 kali gagal dari satu IP dalam 15 menit → percobaan ke-6 ditolak, termasuk dengan kata sandi benar; akun lain tidak terpengaruh | manual di browser (lulus) |
 | 4 | Tanpa sesi membuka `/dashboard` → dialihkan ke `/login` | manual |
 | 5 | Peran tanpa hak membuka halaman → dialihkan dengan pesan akses ditolak | TC-03 (halaman menyusul di M2–M4) |
 | 6 | Nomor HP tersamar untuk selain admin | `format.test.ts` |
@@ -25,7 +25,7 @@ Fondasi aplikasi di `web/`: Next.js 16 (App Router), skema Postgres lewat Drizzl
 | Driver DB | `postgres` (postgres.js), `prepare: false` | Satu driver untuk Postgres lokal (Docker) dan Postgres Vercel lewat pooler | Driver HTTP Neon (tidak bisa ke Postgres lokal) |
 | Hash | `bcryptjs`, cost 12 | JavaScript murni, tanpa kompilasi native di Vercel | argon2 native |
 | Sesi | JWT HS256 (`jose`) di cookie `httpOnly`, 8 jam, hanya berisi id | Tanpa tabel sesi; peran dibaca ulang dari DB tiap request sehingga akun nonaktif langsung terputus | Sesi di database |
-| Pembatasan login | Tabel `percobaan_login` | Tanpa Redis; volume kecil | Upstash |
+| Pembatasan login | Tabel `percobaan_login`; batas 5 per username + IP dan 20 per IP dalam 15 menit; percobaan dicatat sebelum kata sandi diperiksa | Tanpa Redis; blokir per IP mencegah pihak lain mengunci akun karyawan; catat-dulu menutup celah permintaan paralel | Upstash; blokir per username saja (bisa disalahgunakan untuk mengunci akun) |
 | Hak akses | `wajibLogin(peran)` di tiap halaman dan action; `NAV` di `lib/roles.ts` satu-satunya daftar hak | Layout tidak dirender ulang saat navigasi, jadi tidak boleh jadi satu-satunya penjaga | Proxy/middleware saja |
 | Cache Components | Dimatikan | Semua halaman internal dinamis per pengguna; mengurangi jebakan | Dibiarkan aktif |
 | Migrasi di Vercel | `drizzle-kit migrate` sebelum `next build` | Satu langkah deploy | Migrasi manual |

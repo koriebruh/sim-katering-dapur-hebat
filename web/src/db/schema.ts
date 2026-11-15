@@ -92,9 +92,12 @@ export const auditLog = pgTable("audit_log", {
 export const percobaanLogin = pgTable("percobaan_login", {
   id: serial("id").primaryKey(),
   username: varchar("username", { length: 30 }).notNull(),
-  berhasil: boolean("berhasil").notNull(),
+  ip: varchar("ip", { length: 45 }).notNull(),
   dibuatPada: timestamp("dibuat_pada", { withTimezone: true }).notNull().defaultNow(),
-}, (t) => [index("percobaan_login_idx").on(t.username, t.dibuatPada)]);
+}, (t) => [
+  index("percobaan_login_idx").on(t.username, t.ip, t.dibuatPada),
+  index("percobaan_login_ip_idx").on(t.ip, t.dibuatPada),
+]);
 
 export type Peran = (typeof peranEnum.enumValues)[number];
 export type StatusPesanan = (typeof statusPesananEnum.enumValues)[number];
