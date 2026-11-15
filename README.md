@@ -4,7 +4,8 @@ Proyek mata kuliah Sistem Informasi Manajemen (Teknik Informatika, Universitas P
 
 - Aplikasi: https://sim-katering-dapur-hebat.vercel.app
 - Laporan: [`Laporan-SIM-Katering-Dapur-Hebat.pdf`](Laporan-SIM-Katering-Dapur-Hebat.pdf) (33 halaman)
-- Presentasi: [`Presentasi-SIM-Katering-Dapur-Hebat.pptx`](Presentasi-SIM-Katering-Dapur-Hebat.pptx) (14 slide)
+- Presentasi: [`Presentasi-SIM-Katering-Dapur-Hebat.pptx`](Presentasi-SIM-Katering-Dapur-Hebat.pptx) (15 slide)
+- Mockup di Canva: https://canva.link/f2uukvtx89xu4l5
 - Penulis: Syahwa Rahma Andini, NIM 241011402529
 
 ## Status
@@ -15,9 +16,9 @@ Proyek mata kuliah Sistem Informasi Manajemen (Teknik Informatika, Universitas P
 | 4 diagram (flowchart, DFD konteks, DFD level 1, ERD) | Selesai, `.drawio` + `.png` |
 | 7 gambar antarmuka di laporan | Tangkapan layar aplikasi asli |
 | Aplikasi F-01 sampai F-11 | Selesai dan online |
-| Mockup di Canva (diminta template) | **Belum**: unggah `mockup/papan-mockup.png` atau ketujuh PNG ke Canva, isi link di Lampiran |
+| Mockup di Canva (diminta template) | Selesai: https://canva.link/f2uukvtx89xu4l5 (siapa saja dengan link dapat melihat), link juga tertulis di Lampiran laporan |
 | Papan mockup di FigCraft | Selesai: `mockup/mockup-sim-katering.figcraft` dan `mockup/papan-mockup.png` (7 layar aplikasi disusun berjudul) |
-| Bahan presentasi | 14 slide, `.pptx` dan `.pdf` |
+| Bahan presentasi | 15 slide, `.pptx` dan `.pdf` |
 | Presentasi (P13) dan revisi (P14) | Belum |
 
 ## Dokumen
@@ -25,9 +26,9 @@ Proyek mata kuliah Sistem Informasi Manajemen (Teknik Informatika, Universitas P
 | File | Isi |
 |---|---|
 | [`Laporan-SIM-Katering-Dapur-Hebat.pdf`](Laporan-SIM-Katering-Dapur-Hebat.pdf) | Laporan proyek, 33 halaman: 6 bab, daftar pustaka (19 sumber), lampiran |
-| [`Presentasi-SIM-Katering-Dapur-Hebat.pptx`](Presentasi-SIM-Katering-Dapur-Hebat.pptx) | Bahan presentasi, 14 slide dengan catatan pembicara, dapat diedit di PowerPoint |
+| [`Presentasi-SIM-Katering-Dapur-Hebat.pptx`](Presentasi-SIM-Katering-Dapur-Hebat.pptx) | Bahan presentasi, 15 slide dengan catatan pembicara, dapat diedit di PowerPoint |
 | [`Presentasi-SIM-Katering-Dapur-Hebat.pdf`](Presentasi-SIM-Katering-Dapur-Hebat.pdf) | Bahan presentasi versi PDF |
-| [`mockup/papan-mockup.png`](mockup/papan-mockup.png) | Papan mockup tujuh layar (sumber: `mockup/mockup-sim-katering.figcraft`) |
+| [`mockup/papan-mockup.png`](mockup/papan-mockup.png) | Papan mockup tujuh layar (sumber: `mockup/mockup-sim-katering.figcraft`), juga di Canva: https://canva.link/f2uukvtx89xu4l5 |
 | `diagram/` | Flowchart sistem berjalan, DFD konteks, DFD level 1, ERD (`.drawio` + `.png`) |
 
 Versi Word laporan (`.docx`), template dosen, logo, dan skrip pembuat laporan tidak ikut di repo.
@@ -48,7 +49,7 @@ Kata sandi keempat akun sama: **`Dapur-59f00acd63`**
 | Kepala Dapur | `dapur.sari` | `Dapur-59f00acd63` | Ibu Sari | Dashboard, Jadwal Produksi | Lihat jadwal produksi dan rekap komponen menu, tandai dikirim/selesai |
 | Manajer Operasional | `manajer.budi` | `Dapur-59f00acd63` | Budi Santoso | Dashboard, Pesanan, Laporan | Lihat pesanan (nomor HP tersamar), laporan penjualan dan piutang, ekspor CSV, cetak |
 | Pemilik | `pemilik.nur` | `Dapur-59f00acd63` | Hj. Nurhayati | Dashboard, Laporan | Dashboard omzet, tren 6 bulan, menu terlaris, piutang |
-| Pengunjung | tanpa login | — | — | Halaman publik | Lihat profil dan katalog menu, pesan lewat WhatsApp |
+| Pengunjung | tanpa login | — | — | Halaman publik | Lihat profil dan katalog menu, pesan lewat WhatsApp ke 0895-4117-63888 dengan pesan pemesanan yang sudah terisi |
 
 Login memakai nama pengguna, bukan email. Akun ini hanya untuk demo dan seluruh datanya contoh. Karena kata sandinya tertulis di repo publik, siapa pun bisa masuk dan mengubah data demo; jangan pakai akun atau kata sandi ini untuk data sungguhan. Setelah 5 kali salah sandi, login akun itu ditahan 15 menit.
 
@@ -119,7 +120,7 @@ Menurut dosen, data wawancara tidak wajib asli dan boleh dikarang. Yang berikut 
 |---|---|---|
 | Kelas | 05TPLE004 | Cover laporan |
 | Nama usaha | Katering Dapur Hebat | Laporan, aplikasi |
-| Alamat, jam buka, nomor WhatsApp, minimal 25 porsi | Lihat `web/src/lib/situs.ts` | Laporan 1.2, halaman publik |
+| Alamat, jam buka, minimal 25 porsi | Lihat `web/src/lib/situs.ts` | Laporan 1.2, halaman publik |
 | Karyawan dan struktur | 8 orang | Laporan 1.1, 1.2 |
 | Narasumber dan nama pengguna | Ibu Hj. Nurhayati, Rina Oktaviani, Budi Santoso, Ibu Sari | Laporan, akun demo |
 | Tanggal wawancara/observasi | 7 dan 8 November 2026 | Laporan 2.1 |
@@ -135,7 +136,7 @@ Catatan menu, `info.txt` dibanding foto: ayam serundeng dan Paket Hebat 2 ada sa
 ## Yang masih harus dikerjakan
 
 - [ ] Opsional: ganti data dummy dengan data asli katering (laporan: `build_laporan.py`; aplikasi: `web/src/lib/situs.ts` dan halaman Menu/Pelanggan). Kelas di cover (05TPLE004) tetap perlu diganti
-- [ ] Unggah gambar di `mockup/` ke Canva, isi link Canva di Lampiran
+- [x] Papan mockup diunggah ke Canva dan link-nya diisi di Lampiran
 - [x] Logo Universitas Pamulang di cover dan slide judul (`UNPAM_logo1.png`, tidak ikut di repo)
 - [x] Ringkasan wawancara di Lampiran (karangan, sesuai izin dosen)
 - [ ] Cek nomor halaman daftar isi di Word. Daftar isi sudah terisi otomatis dari hasil render LibreOffice; bila Word memecah halaman sedikit berbeda, klik kanan daftar isi → Update Field
