@@ -236,12 +236,14 @@ def dfd_level1():
 
 
 def erd():
-    g = Diagram("ERD", 960, 560)
+    g = Diagram("ERD", 960, 720)
     g.entity("pelanggan", 30, 40, "pelanggan", ["id_pelanggan (PK)", "nama", "no_hp", "alamat"])
     g.entity("pesanan", 380, 40, "pesanan", ["id_pesanan (PK)", "id_pelanggan (FK)", "id_pengguna (FK)", "tgl_pesan",
                                              "tgl_kirim", "alamat_kirim", "total", "status"])
     g.entity("pengguna", 730, 40, "pengguna", ["id_pengguna (PK)", "nama", "username", "password", "peran"])
-    g.entity("menu", 30, 350, "menu", ["id_menu (PK)", "nama_menu", "komposisi", "harga", "aktif"])
+    g.entity("menu", 30, 350, "menu", ["id_menu (PK)", "nama_menu", "slug", "komposisi", "harga", "foto", "aktif"])
+    g.entity("foto", 30, 580, "menu_foto", ["menu_id (PK, FK)", "tipe", "data", "diperbarui_pada"])
+    g.edge("menu", "foto", "memiliki", "b", "t", lo=(38, 0), sl="1", tl="1")
     g.entity("detail", 380, 350, "detail_pesanan", ["id_detail (PK)", "id_pesanan (FK)", "id_menu (FK)", "jumlah",
                                                     "harga_satuan", "subtotal"])
     g.entity("bayar", 730, 350, "pembayaran", ["id_bayar (PK)", "id_pesanan (FK)", "tgl_bayar", "jenis", "metode",
