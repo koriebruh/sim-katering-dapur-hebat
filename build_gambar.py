@@ -405,5 +405,6 @@ def mockups():
 
 
 if __name__ == "__main__":
-    flowchart_berjalan(); dfd_konteks(); dfd_level1(); erd(); mockups()
+    # mockups() tidak dipanggil lagi: gambar di mockup/ kini tangkapan layar aplikasi asli
+    flowchart_berjalan(); dfd_konteks(); dfd_level1(); erd()
     print("ok")
