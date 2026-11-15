@@ -3,7 +3,7 @@ import { and, eq } from "drizzle-orm";
 import { redirect } from "next/navigation";
 import { cache } from "react";
 import { db } from "@/db";
-import { pengguna, type Peran } from "@/db/schema";
+import { auditLog, pengguna, type Peran } from "@/db/schema";
 import { bacaSesi } from "./session";
 
 /** Pengguna yang sedang login, dibaca ulang dari database agar akun nonaktif langsung kehilangan akses. */
@@ -28,3 +28,9 @@ export async function wajibLogin(peran?: readonly Peran[]) {
   if (peran && !peran.includes(u.peran)) redirect("/dashboard?akses=ditolak");
   return u;
 }
+
+type Penulis = Pick<typeof db, "insert">;
+
+/** Jejak audit: siapa mengubah apa. `x` boleh berupa transaksi agar ikut batal bila aksinya gagal. */
+export const catatAudit = (x: Penulis, penggunaId: number, aksi: string, entitas: string, entitasId: string | number, detail?: unknown) =>
+  x.insert(auditLog).values({ penggunaId, aksi, entitas, entitasId: String(entitasId), detail: detail ?? null });

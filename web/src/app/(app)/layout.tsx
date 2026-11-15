@@ -12,7 +12,9 @@ export default async function LayoutInternal({ children }: { children: React.Rea
   return (
     <div className="flex min-h-dvh flex-col bg-cream md:flex-row">
       <Sidebar nav={nav} nama={u.nama} peran={LABEL_PERAN[u.peran]} />
-      <main className="min-w-0 flex-1 p-5 md:p-8">{children}</main>
+      <main className="min-w-0 flex-1 px-4 pb-24 pt-5 md:px-8 md:pb-10 md:pt-8 print:p-0">
+        <div className="mx-auto max-w-6xl">{children}</div>
+      </main>
     </div>
   );
 }
