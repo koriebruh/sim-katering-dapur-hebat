@@ -3,27 +3,40 @@
 import { motion, useReducedMotion } from "motion/react";
 import Image from "next/image";
 
-/** Kotak nasi kraft yang tutupnya terbuka sekali saat halaman dimuat. */
-export function KotakHero({ foto, alt }: { foto: string; alt: string }) {
+/** Foto hero bundar dengan kartu harga yang mengambang, seperti pada desain referensi. */
+export function FotoHero({ foto, alt, harga, minimal }: { foto: string; alt: string; harga: string; minimal: number }) {
   const diam = useReducedMotion();
   return (
-    <div className="relative mx-auto w-full max-w-xl pt-[40%] sm:pt-[36%] [perspective:1400px]">
-      <div className="relative rounded-xl bg-kraft-500 p-3 shadow-[0_14px_0_-4px_var(--color-kraft-700)] sm:p-4">
-        <div className="relative aspect-[4/3] overflow-hidden rounded-md bg-kraft-100">
-          <Image src={foto} alt={alt} fill priority sizes="(min-width: 1024px) 560px, 92vw" className="object-cover" />
-        </div>
-        <motion.div
-          aria-hidden
-          className="absolute inset-0 grid origin-top place-items-center rounded-xl bg-kraft-400 [transform-style:preserve-3d]"
-          initial={diam ? false : { rotateX: 0 }}
-          animate={{ rotateX: 118 }}
-          transition={{ delay: 0.45, duration: 1.2, ease: [0.2, 0.8, 0.2, 1] }}
-        >
-          <span className="rounded-full border-2 border-kraft-700/50 px-5 py-2 text-lg font-extrabold text-kraft-700 [backface-visibility:hidden]">
-            Dapur Hebat
-          </span>
-        </motion.div>
-      </div>
+    <div className="relative mx-auto aspect-square w-full max-w-[440px]">
+      <motion.div
+        className="absolute inset-[6%] overflow-hidden rounded-full shadow-2xl shadow-accent-500/25 ring-8 ring-white"
+        initial={diam ? false : { scale: 0.82, opacity: 0, rotate: -8 }}
+        animate={{ scale: 1, opacity: 1, rotate: 0 }}
+        transition={{ duration: 0.8, ease: [0.2, 0.8, 0.2, 1] }}
+      >
+        <Image src={foto} alt={alt} fill priority sizes="(min-width: 1024px) 400px, 80vw" className="object-cover" />
+      </motion.div>
+
+      <motion.div
+        className="absolute -right-1 top-[12%] rounded-2xl bg-white px-4 py-3 shadow-xl shadow-stone-900/10 ring-1 ring-line sm:right-0"
+        initial={diam ? false : { opacity: 0, y: 16 }}
+        animate={diam ? { opacity: 1 } : { opacity: 1, y: [0, -7, 0] }}
+        transition={diam ? undefined : { opacity: { delay: 0.5, duration: 0.4 }, y: { delay: 0.5, duration: 4, repeat: Infinity, ease: "easeInOut" } }}
+      >
+        <div className="text-xs text-muted">Mulai dari</div>
+        <div className="text-xl font-extrabold text-ink">{harga}</div>
+        <div className="text-xs font-semibold text-accent-600">per porsi</div>
+      </motion.div>
+
+      <motion.div
+        className="absolute -left-1 bottom-[10%] rounded-2xl bg-ink px-4 py-3 text-white shadow-xl sm:left-0"
+        initial={diam ? false : { opacity: 0, y: 16 }}
+        animate={diam ? { opacity: 1 } : { opacity: 1, y: [0, 6, 0] }}
+        transition={diam ? undefined : { opacity: { delay: 0.7, duration: 0.4 }, y: { delay: 0.7, duration: 5, repeat: Infinity, ease: "easeInOut" } }}
+      >
+        <div className="text-xs opacity-70">Minimal pesan</div>
+        <div className="font-extrabold">{minimal} porsi</div>
+      </motion.div>
     </div>
   );
 }

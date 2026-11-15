@@ -1,27 +1,34 @@
 @import "tailwindcss";
 
+/* Token warna mengikuti desain referensi: latar terang hangat, aksen jingga, kartu putih membulat. */
 @theme inline {
   --font-sans: var(--font-jakarta), ui-sans-serif, system-ui, sans-serif;
-  --color-brand-900: #22382b;
-  --color-brand-800: #2f4a3a;
-  --color-brand-100: #dfe8e1;
-  --color-accent-600: #c9701a;
-  --color-accent-500: #e98a2b;
-  --color-accent-100: #fde8cf;
-  --color-cream: #f4f1ec;
-  --color-rice: #fbfaf6;
-  --color-kraft-700: #7d5f36;
-  --color-kraft-500: #b8935f;
-  --color-kraft-400: #c9a878;
-  --color-kraft-100: #f0e6d3;
-  --color-line: #e2dcd2;
-  --color-ink: #1f2933;
-  --color-muted: #52606d;
-}
-
-@media (prefers-reduced-motion: reduce) {
-  *, *::before, *::after { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; }
+  --color-accent-600: #d2560c;
+  --color-accent-500: #f26a1b;
+  --color-accent-100: #ffeede;
+  --color-cream: #fbf8f5;
+  --color-line: #efe8e1;
+  --color-ink: #1f1a17;
+  --color-muted: #6f665f;
 }
 
 :focus-visible { outline: 3px solid var(--color-accent-500); outline-offset: 2px; }
 html { scroll-behavior: smooth; }
+
+/* Uap pada logo dan ilustrasi */
+@keyframes uap { 0%, 100% { transform: translateY(0); opacity: 0.9; } 50% { transform: translateY(-2.5px); opacity: 0.45; } }
+.uap { animation: uap 2.6s ease-in-out infinite; }
+
+/* Garis gelombang di bawah judul hero digambar sekali */
+@keyframes tulis { from { stroke-dashoffset: 260; } to { stroke-dashoffset: 0; } }
+.garis-tulis { stroke-dasharray: 260; animation: tulis 1.1s 0.35s ease-out both; }
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; transition-duration: 0.01ms !important; }
+  html { scroll-behavior: auto; }
+}
+
+@media print {
+  body { background: #fff; }
+  a[href]::after { content: none; }
+}
