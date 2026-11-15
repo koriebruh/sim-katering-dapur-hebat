@@ -65,7 +65,7 @@ export default async function Beranda() {
       <Noda className="-right-56 -top-56 w-[720px]" />
       <Noda className="-left-72 top-[640px] w-[640px]" />
 
-      <header className="relative mx-auto flex max-w-6xl items-center justify-between gap-4 px-5 py-5">
+      <header className="relative mx-auto flex max-w-[1840px] items-center justify-between gap-4 px-5 py-5 sm:px-8 xl:px-14">
         <Link href="/" className="flex items-center gap-2.5 text-lg font-extrabold text-ink"><Logo /> Dapur Hebat</Link>
         <nav aria-label="Navigasi halaman" className="flex items-center gap-1 text-sm">
           {[["#menu", "Menu"], ["#cara-pesan", "Cara pesan"], ["#kontak", "Kontak"]].map(([href, label]) => (
@@ -76,14 +76,14 @@ export default async function Beranda() {
       </header>
 
       <main className="relative">
-        <section className="mx-auto max-w-6xl px-5 pb-6 pt-2">
-          <div className="grid items-center gap-8 rounded-[2rem] bg-gradient-to-br from-accent-100 via-white to-white p-7 ring-1 ring-line sm:p-10 lg:grid-cols-[1.1fr_1fr] lg:p-14">
+        <section className="mx-auto max-w-[1840px] px-5 sm:px-8 xl:px-14 pb-6 pt-2">
+          <div className="grid items-center gap-8 rounded-[2rem] bg-gradient-to-br from-accent-100 via-white to-white p-7 ring-1 ring-line sm:p-10 lg:grid-cols-[1.1fr_1fr] lg:p-14 2xl:px-24 2xl:py-20">
             <div>
-              <h1 className="text-4xl font-extrabold leading-[1.08] tracking-tight text-ink sm:text-5xl lg:text-[3.4rem]">
+              <h1 className="text-4xl font-extrabold leading-[1.08] tracking-tight text-ink sm:text-5xl lg:text-[3.4rem] 2xl:text-[4.4rem]">
                 Nasi box hangat,<br /><span className="text-accent-500">diantar tepat waktu</span>
               </h1>
               <Gelombang className="mt-3 w-44" />
-              <p className="mt-5 max-w-[46ch] text-lg text-muted">
+              <p className="mt-5 max-w-[46ch] text-lg text-muted 2xl:text-xl">
                 Masakan rumahan untuk rapat kantor, acara sekolah, arisan, dan syukuran di Pamulang dan sekitarnya. Dimasak pagi di hari acara Anda.
               </p>
               <div className="mt-8 flex flex-wrap gap-3">
@@ -98,12 +98,12 @@ export default async function Beranda() {
           </div>
         </section>
 
-        <section id="menu" aria-labelledby="judul-menu" className="mx-auto max-w-6xl scroll-mt-6 px-5 py-14">
+        <section id="menu" aria-labelledby="judul-menu" className="mx-auto max-w-[1840px] scroll-mt-6 px-5 sm:px-8 xl:px-14 py-14">
           <h2 id="judul-menu" className="text-3xl font-extrabold tracking-tight text-ink">Pilihan menu</h2>
           <p className="mt-2 max-w-[60ch] text-muted">
             Setiap porsi datang dalam kotak bersekat, lengkap dengan sendok dan tisu. Harga per porsi sudah termasuk kemasan.
           </p>
-          <ul className="mt-8 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
+          <ul className="mt-8 grid gap-5 sm:grid-cols-2 lg:grid-cols-4 2xl:gap-7">
             {daftar.map((m, i) => (
               <li key={m.slug}>
                 <Muncul urut={i % 4} className="group flex h-full flex-col overflow-hidden rounded-2xl bg-white shadow-[0_1px_3px_rgb(28_25_23/0.06)] ring-1 ring-line transition duration-300 hover:-translate-y-1 hover:shadow-xl hover:shadow-accent-500/10">
@@ -124,7 +124,7 @@ export default async function Beranda() {
           </ul>
         </section>
 
-        <section id="cara-pesan" aria-labelledby="judul-cara" className="mx-auto max-w-6xl scroll-mt-6 px-5 py-14">
+        <section id="cara-pesan" aria-labelledby="judul-cara" className="mx-auto max-w-[1840px] scroll-mt-6 px-5 sm:px-8 xl:px-14 py-14">
           <h2 id="judul-cara" className="text-3xl font-extrabold tracking-tight text-ink">Cara pesan</h2>
           <ol className="mt-8 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
             {LANGKAH.map(([Ikon, judul, isi], i) => (
@@ -142,7 +142,7 @@ export default async function Beranda() {
           </ol>
         </section>
 
-        <section id="kontak" aria-labelledby="judul-kontak" className="mx-auto max-w-6xl scroll-mt-6 px-5 pb-16 pt-6">
+        <section id="kontak" aria-labelledby="judul-kontak" className="mx-auto max-w-[1840px] scroll-mt-6 px-5 sm:px-8 xl:px-14 pb-16 pt-6">
           <div className="grid gap-8 rounded-[2rem] bg-ink p-8 text-white sm:p-12 lg:grid-cols-[1.3fr_1fr] lg:items-center">
             <div>
               <h2 id="judul-kontak" className="text-3xl font-extrabold tracking-tight">Pesan untuk acara Anda</h2>

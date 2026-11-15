@@ -25,7 +25,7 @@ export default async function HalamanMenu({ searchParams }: { searchParams: Prom
       <Judul judul="Menu & Paket" sub={`${daftar.filter((m) => m.aktif).length} menu dijual dari ${daftar.length} menu`} />
       <Pesan ok={ok} galat={galat} />
       <div className="grid gap-5 xl:grid-cols-[1fr_360px]">
-        <ul className="grid gap-4 sm:grid-cols-2 2xl:grid-cols-3">
+        <ul className="grid gap-4 sm:grid-cols-2 2xl:grid-cols-4">
           {daftar.map((m, i) => (
             <li key={m.id}>
               <Muncul urut={i} className={`${kelas.kartu} group flex h-full flex-col overflow-hidden !p-0 transition hover:-translate-y-0.5 hover:shadow-lg hover:shadow-accent-500/10`}>

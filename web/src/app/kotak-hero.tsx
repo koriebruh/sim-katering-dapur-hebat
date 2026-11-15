@@ -7,14 +7,14 @@ import Image from "next/image";
 export function FotoHero({ foto, alt, harga, minimal }: { foto: string; alt: string; harga: string; minimal: number }) {
   const diam = useReducedMotion();
   return (
-    <div className="relative mx-auto aspect-square w-full max-w-[440px]">
+    <div className="relative mx-auto aspect-square w-full max-w-[440px] 2xl:max-w-[560px]">
       <motion.div
         className="absolute inset-[6%] overflow-hidden rounded-full shadow-2xl shadow-accent-500/25 ring-8 ring-white"
         initial={diam ? false : { scale: 0.82, opacity: 0, rotate: -8 }}
         animate={{ scale: 1, opacity: 1, rotate: 0 }}
         transition={{ duration: 0.8, ease: [0.2, 0.8, 0.2, 1] }}
       >
-        <Image src={foto} alt={alt} fill priority sizes="(min-width: 1024px) 400px, 80vw" className="object-cover" />
+        <Image src={foto} alt={alt} fill priority sizes="(min-width: 1536px) 520px, (min-width: 1024px) 400px, 80vw" className="object-cover" />
       </motion.div>
 
       <motion.div
