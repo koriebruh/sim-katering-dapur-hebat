@@ -16,7 +16,7 @@ Proyek mata kuliah Sistem Informasi Manajemen, Program Studi Teknik Informatika,
 | 🌐 Aplikasi | https://sim-katering-dapur-hebat.vercel.app |
 | 📄 Laporan | [`Laporan-SIM-Katering-Dapur-Hebat.pdf`](Laporan-SIM-Katering-Dapur-Hebat.pdf), 33 halaman |
 | 📊 Presentasi | [`Presentasi-SIM-Katering-Dapur-Hebat.pptx`](Presentasi-SIM-Katering-Dapur-Hebat.pptx) dan [`.pdf`](Presentasi-SIM-Katering-Dapur-Hebat.pdf), 17 slide |
-| 🎨 Mockup di Canva | https://canva.link/f2uukvtx89xu4l5 |
+| 🎨 Mockup di Canva | https://canva.link/ybdctjzfxr4nx2l |
 
 ## ✅ Status
 
@@ -150,7 +150,7 @@ Satu kompromi yang disengaja: seseorang masih bisa mengunci satu akun selama 15 
 | Uji | Hasil |
 |---|---|
 | Unit test | ✅ 24 lulus |
-| Uji alur otomatis TC-01 sampai TC-15 dan tampilan ponsel 390 px | ✅ 13 lulus, termasuk validasi server, penolakan akses per peran, pemalsuan status, dan unggah foto menu |
+| Uji alur otomatis TC-01 sampai TC-16 dan tampilan ponsel 390 px | ✅ 13 lulus, termasuk validasi server, penolakan akses per peran, pemalsuan status, dan unggah foto menu |
 | Login keempat akun demo di situs online, semua menu terbuka | ✅ Lulus |
 
 ## 📝 Catatan tentang data
