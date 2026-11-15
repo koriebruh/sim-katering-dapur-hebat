@@ -29,7 +29,7 @@ export async function ipKlien() {
  * Tiga batas: per username + IP (ketat), per IP, dan per username dari semua IP (longgar).
  */
 export async function catatPercobaan(username: string, ip: string): Promise<{ diblokir: boolean }> {
-  await db.insert(percobaanLogin).values({ username, ip });
+  const [baru] = await db.insert(percobaanLogin).values({ username, ip }).returning({ id: percobaanLogin.id });
   const [r] = await db
     .select({
       akunIp: sql<number>`count(*) filter (where ${percobaanLogin.username} = ${username} and ${percobaanLogin.ip} = ${ip})::int`,
@@ -41,7 +41,11 @@ export async function catatPercobaan(username: string, ip: string): Promise<{ di
       or(eq(percobaanLogin.username, username), eq(percobaanLogin.ip, ip)),
       gt(percobaanLogin.dibuatPada, sql`now() - make_interval(mins => ${JENDELA_MENIT})`),
     ));
-  return { diblokir: r.akunIp > MAKS_PER_AKUN_IP || r.ip > MAKS_PER_IP || r.akun > MAKS_PER_AKUN };
+  const diblokir = r.akunIp > MAKS_PER_AKUN_IP || r.ip > MAKS_PER_IP || r.akun > MAKS_PER_AKUN;
+  // Percobaan yang ditolak tidak ikut dihitung, sehingga blokir selalu berakhir 15 menit setelah
+  // kegagalan sungguhan terakhir dan tidak bisa diperpanjang dengan terus mencoba.
+  if (diblokir) await db.delete(percobaanLogin).where(eq(percobaanLogin.id, baru.id));
+  return { diblokir };
 }
 
 /** Login berhasil menghapus hitungan gagal untuk username + IP itu. */
