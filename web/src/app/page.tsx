@@ -87,7 +87,7 @@ export default async function Beranda() {
                 Masakan rumahan untuk rapat kantor, acara sekolah, arisan, dan syukuran di Pamulang dan sekitarnya. Dimasak pagi di hari acara Anda.
               </p>
               <div className="mt-8 flex flex-wrap gap-3">
-                <a href={tautanWa()} className={`${kelas.tombol} !px-6 !py-3.5 !text-base`}><MessageCircle size={19} aria-hidden /> Pesan lewat WhatsApp</a>
+                <a href={tautanWa()} target="_blank" rel="noopener noreferrer" className={`${kelas.tombol} !px-6 !py-3.5 !text-base`}><MessageCircle size={19} aria-hidden /> Pesan lewat WhatsApp</a>
                 <a href="#menu" className={`${kelas.tombolGaris} !px-6 !py-3.5 !text-base`}>Lihat menu</a>
               </div>
             </div>
@@ -116,7 +116,13 @@ export default async function Beranda() {
                   <div className="flex flex-1 flex-col p-4">
                     <h3 className="font-bold text-ink">{m.nama}</h3>
                     <p className="mt-1 flex-1 text-sm text-muted">{m.komposisi}</p>
-                    <p className="mt-3 text-lg font-extrabold text-accent-600">{rupiah(m.harga)} <span className="text-xs font-medium text-muted">per porsi</span></p>
+                    <div className="mt-3 flex items-center justify-between gap-2">
+                      <p className="text-lg font-extrabold text-accent-600">{rupiah(m.harga)} <span className="text-xs font-medium text-muted">per porsi</span></p>
+                      <a href={tautanWa(m)} target="_blank" rel="noopener noreferrer" aria-label={`Pesan ${m.nama} lewat WhatsApp`}
+                        className="inline-flex shrink-0 items-center gap-1.5 rounded-xl bg-accent-100 px-3 py-2 text-sm font-semibold text-accent-600 transition hover:bg-accent-500 hover:text-white active:scale-[0.97]">
+                        <MessageCircle size={15} aria-hidden /> Pesan
+                      </a>
+                    </div>
                   </div>
                 </Muncul>
               </li>
@@ -147,12 +153,14 @@ export default async function Beranda() {
             <div>
               <h2 id="judul-kontak" className="text-3xl font-extrabold tracking-tight">Pesan untuk acara Anda</h2>
               <p className="mt-2 max-w-[50ch] text-white/70">Kabari kami paling lambat tiga hari sebelum acara supaya bahan bisa kami siapkan.</p>
-              <a href={tautanWa()} className={`${kelas.tombol} mt-6 !px-6 !py-3.5 !text-base`}><MessageCircle size={19} aria-hidden /> Pesan lewat WhatsApp</a>
+              <a href={tautanWa()} target="_blank" rel="noopener noreferrer" className={`${kelas.tombol} mt-6 !px-6 !py-3.5 !text-base`}><MessageCircle size={19} aria-hidden /> Pesan lewat WhatsApp</a>
             </div>
             <address className="grid content-start gap-4 not-italic text-white/85">
               <p className="flex gap-3"><MapPin size={20} aria-hidden className="mt-0.5 shrink-0 text-accent-500" />
                 <span>{SITUS.alamat.jalan}<br />{SITUS.alamat.kota}, {SITUS.alamat.provinsi} {SITUS.alamat.kodePos}</span></p>
               <p className="flex gap-3"><Clock size={20} aria-hidden className="shrink-0 text-accent-500" /> {SITUS.jam}</p>
+              <p className="flex gap-3"><MessageCircle size={20} aria-hidden className="shrink-0 text-accent-500" />
+                <a href={tautanWa()} target="_blank" rel="noopener noreferrer" className="underline-offset-2 hover:underline">WhatsApp {SITUS.waTampil}</a></p>
             </address>
           </div>
         </section>
