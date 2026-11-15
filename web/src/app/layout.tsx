@@ -8,8 +8,8 @@ const SITUS = process.env.NEXT_PUBLIC_SITE_URL ?? "http://localhost:3000";
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITUS),
-  title: { default: "Katering Dapur Hebat — Nasi Box & Tumpeng Pamulang", template: "%s | Katering Dapur Hebat" },
-  description: "Katering nasi box, paket nasi, dan tumpeng mini untuk acara kantor, sekolah, dan keluarga di Pamulang, Tangerang Selatan.",
+  title: { default: "Katering Dapur Hebat — Nasi Box & Tumpeng Ciputat", template: "%s | Katering Dapur Hebat" },
+  description: "Katering nasi box, paket nasi, dan tumpeng mini untuk acara kantor, sekolah, dan keluarga di Ciputat Timur, Tangerang Selatan.",
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {

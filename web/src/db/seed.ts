@@ -59,10 +59,10 @@ async function main() {
 
   await db.transaction(async (tx) => {
     const users = await tx.insert(pengguna).values([
-      { nama: "Rina Oktaviani", username: "admin.rina", passwordHash: hash, peran: "admin" },
-      { nama: "Ibu Sari", username: "dapur.sari", passwordHash: hash, peran: "dapur" },
-      { nama: "Budi Santoso", username: "manajer.budi", passwordHash: hash, peran: "manajer" },
-      { nama: "Hj. Nurhayati", username: "pemilik.nur", passwordHash: hash, peran: "pemilik" },
+      { nama: "Wawa", username: "wawa", passwordHash: hash, peran: "admin" },
+      { nama: "Andini", username: "andini", passwordHash: hash, peran: "dapur" },
+      { nama: "James", username: "james", passwordHash: hash, peran: "manajer" },
+      { nama: "Ibu Enih", username: "enih", passwordHash: hash, peran: "pemilik" },
     ]).returning({ id: pengguna.id });
     const adminId = users[0].id;
 
