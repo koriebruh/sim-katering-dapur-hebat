@@ -17,6 +17,7 @@ Proyek mata kuliah Sistem Informasi Manajemen, Program Studi Teknik Informatika,
 | 📄 Laporan | [`Laporan-SIM-Katering-Dapur-Hebat.pdf`](Laporan-SIM-Katering-Dapur-Hebat.pdf), 33 halaman |
 | 📊 Presentasi | [`Presentasi-SIM-Katering-Dapur-Hebat.pptx`](Presentasi-SIM-Katering-Dapur-Hebat.pptx) dan [`.pdf`](Presentasi-SIM-Katering-Dapur-Hebat.pdf), 17 slide |
 | 🎨 Mockup di Canva | https://canva.link/ybdctjzfxr4nx2l |
+| 🖌️ Mockup di Figma | https://www.figma.com/design/qvBYKP12YZLAytBmIJahLh/Mockup-SIM-Katering-Dapur-Hebat |
 
 ## ✅ Status
 
@@ -24,7 +25,7 @@ Proyek mata kuliah Sistem Informasi Manajemen, Program Studi Teknik Informatika,
 |---|---|
 | Laporan: 6 bab, daftar pustaka 19 sumber, lampiran, logo, daftar isi | ✅ Selesai |
 | Diagram: flowchart sistem berjalan, DFD konteks, DFD level 1, ERD | ✅ Selesai |
-| Mockup tujuh layar: papan FigCraft dan Canva | ✅ Selesai |
+| Mockup tujuh layar: papan FigCraft, Canva, dan Figma | ✅ Selesai |
 | Aplikasi F-01 sampai F-11 | ✅ Selesai dan online |
 | Uji: 24 unit test, 13 uji alur otomatis | ✅ Lulus |
 | Bahan presentasi 17 slide | ✅ Selesai |
